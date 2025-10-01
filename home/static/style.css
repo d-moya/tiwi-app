@@ -1,0 +1,46 @@
+header{
+    display: flex;
+    width: 100vw;
+    flex-wrap: nowrap;
+}
+.logo-casita{
+    display: inline-block;
+    text-decoration: none;
+    background-image: url('images/logo-casita.png');
+    width: 4vw;
+    height: 4vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    vertical-align: middle; 
+}
+.logo-center{
+    display: inline-block;
+    text-decoration: none;
+    width: 25vw;
+    height: 4vh;
+    margin-right: 1vw;
+    border: none;
+    vertical-align: middle;
+
+}
+.logo-usm{
+    display: inline-block;
+    text-decoration: none;
+    width: 25vw;
+    height: 4vh;
+    margin-right: 1vw;
+    border: none;
+    vertical-align: middle;
+
+}
+.btn{
+    display: inline-block;
+    background-color: violet;
+    width: 120px;
+    height: 30px;
+}
+
