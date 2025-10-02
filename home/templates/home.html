@@ -14,15 +14,19 @@
 <body>
 
     <header class="navbar">
-            <a href="{% url 'home' %}" class="config-boton logo-casita">
+
+        <a href="{% url 'home' %}" class="config-boton logo-casita">
             <img src="{% static 'images/Logo-casita.png' %}">
-    
-        <div class="Config-logo">
-            <img src="{% static 'images/Logo-Choripan.png' %}" class="logo">
-            <img src="{% static 'images/Logo-usm.png' %}" class="logo">
+        </a>
+
+        <img src="{% static 'images/Logo-Choripan.png' %}" class="logo-choripan">
+
+        <img src="{% static 'images/Logo-usm.png' %}" class="logo-usm">
+
         </div>
 
         <div class="Nav-Boton">
+
             <a href="#" class="config-boton login-button">
                 <img src="{% static 'images/img-login.png' %}">
             </a>
@@ -32,31 +36,26 @@
         </div>
     </header>
 
+
     <main class="contenido-principal">
-        <div class="botones-enlaces"> 
-            <a href="https://linktr.ee/ramos.usm>" class=""
-                </a>
-            
-            <a href="url_materia_2.html" class="boton-redireccion-imagen boton-materia-2">
-                </a>
-
-            <a href="url_materia_3.html" class="boton-redireccion-imagen boton-materia-3">
-                </a>
-
-            <a href="url_materia_4.html" class="boton-redireccion-imagen boton-materia-4">
-                </a>
-
-            <a href="url_materia_5.html" class="boton-redireccion-imagen boton-materia-5">
-                </a>
-
-            <a href="url_materia_6.html" class="boton-redireccion-imagen boton-materia-6">
-                </a>
-
-        </div>
 
         <div class="barra-busqueda">
             <input type="text" placeholder="Ingresa la materia que necesites o quieras ayuda :)">
             <button>Buscar</button>
+        </div>
+
+        <div class="botones-enlaces"> 
+            <a href="https://linktr.ee/ramos.usm" class="config-boton-link linktree-usm">
+                </a>
+            
+            <a href="https://siga.usm.cl/pag/home.jsp" class="config-boton-link siga-usm">
+                </a>
+
+            <a href="https://sireb.usm.cl/" class="config-boton-link sireb-usm">
+                </a>
+
+            <a href="https://aula.usm.cl/portada/index.php" class="config-boton-link aula-usm">
+                </a>
         </div>
     </main>
 

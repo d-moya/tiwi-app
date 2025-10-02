@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding-top: 60px; 
+    padding-top: 90px; 
     font-family: Arial, sans-serif;
     background-color: #282828;
 }
@@ -10,8 +10,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:10 20px;
-    height:35px;
+    padding:0;
+    height:45px;
     position: fixed;
     top: 0;
     left: 0;
@@ -21,30 +21,36 @@ body {
 }
 
 .logo-casita {
-    margin-right:15px;
+    background-color: #f77c38;
+    height: 100%;
     margin-left: 15px;
-    width: auto;
-    flex-grow: 1;
+    padding: 0 5px;
+    /*width: auto;*/
 }
 
-.config-logo {
-    display: flex;
-    flex-grow: 1;
-    border: none;
-}
-
-.logo {
+.logo-choripan{
+    background-color: #a52a2a;
     height: 40px;
+    display: flex;
+    padding: 0 5px;
     width: auto;
-    vertical-align: middle;
-    margin-right: 15px;
-
+    padding: 0;
+}
+.logo-usm{
+    background-color: #a53;
+    height: 40px;
+    display: flex;
+    padding: 0;
+    width: auto;
+    padding: 0 5px;
 }
 
 .Nav-Boton {
     display: flex;
     margin-right: 15px;
     gap:15px;
+    height: 100%;
+
 }
 
 .config-boton {
@@ -56,7 +62,7 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    flex-grow: 1;
+    height: 100%;
 }
 .config-boton img {
     height: 40px;
@@ -67,4 +73,60 @@ body {
 .config-boton:hover {
     opacity: 0.8;
 }
+.login-boton{
+    background-color: #9370db;
+}
+.menu-boton{
+    background-color: #4b0082;
+}
 
+.contenido-principal{
+    max-width: 1200px;
+    margin: 20px;
+    padding: 0 20px;
+}
+
+.botones-enlaces{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.config-boton-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #282828;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.config-boton-link:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.linktree-usm{
+    background-image: url();
+    background-color: violet;
+}
+.siga-usm{
+    background-image: url();
+    background-color: greenyellow;
+}
+.sireb-usm{
+    background-image: url();
+    background-color: orchid;
+}.aula-usm{
+    background-image: url();
+    background-color: burlywood;
+}
