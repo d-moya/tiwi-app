@@ -82,13 +82,14 @@ body {
 
 .contenido-principal{
     max-width: 1200px;
-    margin: 20px;
+    margin: 60px;
     padding: 0 20px;
 }
 
 .botones-enlaces{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    margin-top: 100px;
+    grid-template-columns: repeat(auto-fit, 1fr);
     gap: 40px;
     margin-bottom: 30px;
 }
@@ -126,7 +127,38 @@ body {
 .sireb-usm{
     background-image: url();
     background-color: orchid;
+
 }.aula-usm{
     background-image: url();
-    background-color: burlywood;
+    background-color: black;
 }
+.barra-busqueda {
+display: flex;
+justify-content: center;
+width: 80%;
+margin: 30px auto 50px auto;
+border: 2px solid #ccc;
+border-radius: 25px;
+overflow: hidden;
+}
+
+.barra-busqueda input[type="text"]{
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.barra-busqueda button{
+    flex-shrink: 0;
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+
+
+}
+
