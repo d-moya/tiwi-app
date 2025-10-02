@@ -1,46 +1,70 @@
-header{
+body {
+    margin: 0;
+    padding-top: 60px; 
+    font-family: Arial, sans-serif;
+    background-color: #282828;
+}
+
+.navbar {
+    background-color: #282828; 
     display: flex;
-    width: 100vw;
-    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding:10 20px;
+    height:35px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
 }
-.logo-casita{
-    display: inline-block;
-    text-decoration: none;
-    background-image: url('images/logo-casita.png');
-    width: 4vw;
-    height: 4vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    vertical-align: middle; 
+
+.logo-casita {
+    margin-right:15px;
+    margin-left: 15px;
+    width: auto;
+    flex-grow: 1;
 }
-.logo-center{
-    display: inline-block;
-    text-decoration: none;
-    width: 25vw;
-    height: 4vh;
-    margin-right: 1vw;
+
+.config-logo {
+    display: flex;
+    flex-grow: 1;
     border: none;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
     vertical-align: middle;
+    margin-right: 15px;
 
 }
-.logo-usm{
-    display: inline-block;
-    text-decoration: none;
-    width: 25vw;
-    height: 4vh;
-    margin-right: 1vw;
-    border: none;
-    vertical-align: middle;
 
+.Nav-Boton {
+    display: flex;
+    margin-right: 15px;
+    gap:15px;
 }
-.btn{
-    display: inline-block;
-    background-color: violet;
-    width: 120px;
-    height: 30px;
+
+.config-boton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-grow: 1;
+}
+.config-boton img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.config-boton:hover {
+    opacity: 0.8;
 }
 
