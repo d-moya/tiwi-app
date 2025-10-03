@@ -9,9 +9,9 @@ body {
     background-color: #282828; 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     padding:0;
-    height:45px;
+    height: 50px;
     position: fixed;
     top: 0;
     left: 0;
@@ -21,34 +21,39 @@ body {
 }
 
 .logo-casita {
-    background-color: #f77c38;
+    background-color:none;
     height: 100%;
-    margin-left: 15px;
-    padding: 0 5px;
-    /*width: auto;*/
+    margin-left: 2%;
+    width: 10%;
+    padding: 0;
+
 }
 
 .logo-choripan{
-    background-color: #a52a2a;
-    height: 40px;
+    background-color:none;
+    height: 100%;
     display: flex;
-    padding: 0 5px;
-    width: auto;
+    width: 30%;
     padding: 0;
+    justify-content: center;
+    border: none;
+    align-items: center;
+    justify-content: center;
 }
-.logo-usm{
-    background-color: #a53;
-    height: 40px;
+.logo-usm{    
+    align-items: center;
+    justify-content: center;
+    background-color:none;
+    border: none;
+    height: 100%;
     display: flex;
     padding: 0;
-    width: auto;
-    padding: 0 5px;
+    width: 20%;
+    justify-content: center;
 }
 
 .Nav-Boton {
     display: flex;
-    margin-right: 15px;
-    gap:15px;
     height: 100%;
 
 }
@@ -65,9 +70,8 @@ body {
     height: 100%;
 }
 .config-boton img {
-    height: 40px;
-    width: auto;
-    display: block;
+    height: 100%;
+    /*display: block;*/
 }
 
 .config-boton:hover {
@@ -75,9 +79,12 @@ body {
 }
 .login-boton{
     background-color: #9370db;
+    width: 30%;
 }
 .menu-boton{
     background-color: #4b0082;
+    width: 10%;
+    margin-right: 2%;
 }
 
 .contenido-principal{
@@ -161,4 +168,3 @@ overflow: hidden;
 
 
 }
-
