@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 body {
     margin: 0;
     padding-top: 90px; 
-    font-family: Arial, sans-serif;
-    background-color: #282828;
+    font-family: 'Inter', sans-serif;
+    background-color: #0e141e;
 }
 
 .navbar {
-    background-color: red; 
+    background: linear-gradient(90deg, #DC6749, #A15180);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
-    padding:0;
-    height: 50px;
+    align-items: center;
+    padding:0px 15px;
+    height: 70px;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,20 +23,28 @@ body {
     z-index: 1000;
 }
 
-.logo-casita {
+.logo-casita{
     background-color:none;
     height: 100%;
-    margin-left: 2%;
-    width: 10%;
+    margin-left: 0%;
+    width: auto;
     padding: 0;
+    display: flex; 
+    align-items: center;
 
+}
+
+.logo-casita img {
+    height: 50px; 
+    width: 50px;
+    display: block;
 }
 
 .logo-choripan{
     background-color:none;
     height: 100%;
     display: flex;
-    width: 30%;
+    width: 25%;
     padding: 0;
     justify-content: center;
     border: none;
@@ -48,7 +59,7 @@ body {
     height: 100%;
     display: flex;
     padding: 0;
-    width: 20%;
+    width: 25%;
     justify-content: center;
 }
 
@@ -61,16 +72,18 @@ body {
 .config-boton {
     background: none;
     border: none;
+    font-size: 14px;
     padding: 0;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    height: 100%;
+    height: auto;
+    color: white; 
 }
 .config-boton img {
-    height: 100%;
+    height: 55%;
     /*display: block;*/
 }
 
@@ -79,11 +92,12 @@ body {
 }
 .login-boton{
     background-color: #9370db;
-    width: 30%;
+    padding: 0 20px; 
+    margin-right: 10px;
 }
 .menu-boton{
     background-color: #4b0082;
-    width: 10%;
+    padding: 0 20px;
     margin-right: 2%;
 }
 
@@ -96,48 +110,46 @@ body {
 .botones-enlaces{
     display: grid;
     margin-top: 100px;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
     margin-bottom: 30px;
 }
 
 .config-boton-link{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-top: 100%;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid #282828;
-    border-radius: 5px;
-    cursor: pointer;
+    min-height: 250px;
+    border-radius: 12px;
     text-decoration: none;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-end; /* Alinear el texto abajo */
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .config-boton-link:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
 }
 
 .linktree-usm{
     background-image: url();
-    background-color: violet;
+    background-color: #e83e8c;
 }
 .siga-usm{
     background-image: url();
-    background-color: green;
+    background-color: #28a745;
 }
 .sireb-usm{
     background-image: url();
-    background-color: orchid;
+    background-color: #8f40a1;
 
 }.aula-usm{
     background-image: url();
-    background-color: blue;
+    background-color: #007bff;
 }
 .barra-busqueda {
 display: flex;
@@ -159,12 +171,14 @@ overflow: hidden;
 
 .barra-busqueda button{
     flex-shrink: 0;
-    background-color: grey;
+    background-color: #263752;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
-
-
+    transition: background-color 0.2s;
+}
+.barra-busqueda button:hover {
+    background-color: #A15180;
 }
