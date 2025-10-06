@@ -9,8 +9,25 @@
 </head>
 
 <body>
+<script>
+  function cerrarmenu(){
+    document.getElementById("ladomenu").style.width="0";
 
-    <header class="navbar">
+  }
+  function abrirmenu(){
+    document.getElementById("ladomenu").style.width="300px";
+  }  
+</script>
+
+     <div class="menulado" id="ladomenu">
+            <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
+            <a href="#"> Despues</a>
+            <a href="#">Digan</a>
+            <a href="#">Que</a>
+            <a href="#">Poner</a>
+            <a href="#">Aqui</a>   
+        </div>
+    <header class="navbar">       
 
         <a href="{% url 'home' %}" class="config-boton logo-casita">
             <img src="{% static 'images/logo-casita (2).svg' %}">
@@ -27,7 +44,7 @@
             <a href="#" class="config-boton login-button">
                 <img src="{% static 'images/logo-registro.svg' %}">
             </a>
-            <button class="config-boton menu-button" >
+            <button class="config-boton menu-button" onclick="abrirmenu()">
                 <img src="{% static 'images/logo-menu.svg' %}">
             </button>
         </div>
@@ -51,6 +68,7 @@
             <a href="https://aula.usm.cl/portada/index.php" class="config-boton-link aula-usm">aula</a>
         </div>
     </main>
+
 
 </body>
 </html>
