@@ -142,15 +142,18 @@ body {
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
-a.linktree-usm { background: linear-gradient(135deg, #a7d37a 0%, #3e8e41 100%)!important;}
-a.siga-usm { background: linear-gradient(135deg, #ff8989 0%, #ff5270 100%)!important; }
-a.sireb-usm { background: linear-gradient(135deg, #e39dff 0%, #b860e6 100%)!important; }
-a.aula-usm { background: linear-gradient(135deg, #c783e8 0%, #8736b4 100%)!important; }
+a.linktree-usm { background: #a0b9a8;}
+.bibloteca-usm{background: #ffa18e;}
+a.siga-usm { background: #f88998; }
+a.sireb-usm { background: #e680b1; }
+a.aula-usm { background: #da87cc; }
+.calendario-usm{background: #a58bd2;}
+.empty{background-color: none;}
 
 .botones-enlaces{
     display: grid;
     margin-top: 100px;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 2fr); 
     gap: 20px;
     margin-bottom: 30px;
 }
