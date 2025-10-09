@@ -9,8 +9,25 @@
 </head>
 
 <body>
+<script>
+  function cerrarmenu(){
+    document.getElementById("ladomenu").style.width="0";
 
-    <header class="navbar">
+  }
+  function abrirmenu(){
+    document.getElementById("ladomenu").style.width="300px";
+  }  
+</script>
+
+     <div class="menulado" id="ladomenu">
+            <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
+            <a href="#"> Despues</a>
+            <a href="#">Digan</a>
+            <a href="#">Que</a>
+            <a href="#">Poner</a>
+            <a href="#">Aqui</a>   
+        </div>
+    <header class="navbar">       
 
         <a href="{% url 'home' %}" class="config-boton logo-casita">
             <img src="{% static 'images/logo-casita (2).svg' %}">
@@ -27,7 +44,7 @@
             <a href="#" class="config-boton login-button">
                 <img src="{% static 'images/logo-registro.svg' %}">
             </a>
-            <button class="config-boton menu-button" >
+            <button class="config-boton menu-button" onclick="abrirmenu()">
                 <img src="{% static 'images/logo-menu.svg' %}">
             </button>
         </div>
@@ -42,15 +59,24 @@
         </div>
 
         <div class="botones-enlaces"> 
-            <a href="https://linktr.ee/ramos.usm" class="config-boton-link linktree-usm" >linktree</a>
+            <a href="https://linktr.ee/ramos.usm" class="config-boton-link linktree-usm">
+                <img src="{% static 'images/logo-linktree.svg' %}" alt="Linktree"  class="logo-enlace">
+            </a>
             
-            <a href="https://siga.usm.cl/pag/home.jsp" class="config-boton-link siga-usm">siga</a>
+            <a href="https://siga.usm.cl/pag/home.jsp" class="config-boton-link siga-usm">
+                <img src="{% static 'images/logo-siga.svg' %}" alt="SIGA" class="logo-enlace">
+            </a>
 
-            <a href="https://sireb.usm.cl/" class="config-boton-link sireb-usm">sireb</a>
+            <a href="https://sireb.usm.cl/" class="config-boton-link sireb-usm">
+                <img src="{% static 'images/logo-sireb usm.svg' %}" alt="Sireb" class="logo-enlace">
+            </a>
 
-            <a href="https://aula.usm.cl/portada/index.php" class="config-boton-link aula-usm">aula</a>
+            <a href="https://aula.usm.cl/portada/index.php" class="config-boton-link aula-usm">
+                <img src="{% static 'images/logo-aula usm.svg' %}" alt="Aula"  class="logo-enlace">
+            </a>
         </div>
     </main>
+
 
 </body>
 </html>
