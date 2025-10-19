@@ -21,11 +21,25 @@
 
      <div class="menulado" id="ladomenu">
             <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
-            <a href="{% url 'crear_publicacion'%}">Publicar</a>
-            <a href="#">Digan</a>
-            <a href="#">Que</a>
-            <a href="#">Poner</a>
-            <a href="#">Aqui</a>   
+
+            {% if user.is_authenticated %}
+                <span class= "" style="padding: 15px; display: block; color: white;">{{ user.username }}</span> 
+        
+                <form method="post" action="{% url 'logout' %}" style="display: block; padding: 0;">
+                    {% csrf_token %} <button type="submit"
+                     style="background: none; border: none; color: white; cursor: pointer; 
+                            width: 100%; text-align: left; padding: 10px 15px; font-size: 1em;">Cerrar Sesión </button>
+                </form>
+                <hr style="margin: 10px 0;">
+                <a href="{% url 'crear_publicacion' %}">Publicar</a>
+                <a href="{% url 'muro_prestamos' %}">Muro Prestamos</a>
+                <a href="{% url 'muro_ayudas' %}">Muro Ayudas</a>
+                <a href="{% url 'muro_servicio' %}">Muro Servicio</a>
+
+            {% else %}
+                <span style="padding: 15px; display: block; color: white;">Si quieres acceder al menu debes iniciar sesion</span> 
+
+            {% endif %}
         </div>
     <header class="navbar">       
 
@@ -41,7 +55,7 @@
 
         <div class="Nav-Boton">
 
-            <a href="#" class="config-boton login-button">
+            <a href="{% url 'registro' %}" class="config-boton login-button">
                 <img src="{% static 'images/logo-registro.svg' %}">
             </a>
             <button class="config-boton menu-button" onclick="abrirmenu()">
@@ -50,7 +64,7 @@
         </div>
     </header>
 
-
+{% block content %}
     <main class="contenido-principal">
 
         <div class="barra-busqueda">
@@ -89,6 +103,6 @@
         </div>
     </main>
 
-
+{% endblock %}
 </body>
 </html>
