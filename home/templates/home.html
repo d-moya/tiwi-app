@@ -21,11 +21,25 @@
 
      <div class="menulado" id="ladomenu">
             <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
-            <a href="#"> Despues</a>
-            <a href="#">Digan</a>
-            <a href="#">Que</a>
-            <a href="#">Poner</a>
-            <a href="#">Aqui</a>   
+
+            {% if user.is_authenticated %}
+                <span class= "" style="padding: 15px; display: block; color: white;">{{ user.username }}</span> 
+        
+                <form method="post" action="{% url 'logout' %}" style="display: block; padding: 0;">
+                    {% csrf_token %} <button type="submit"
+                     style="background: none; border: none; color: white; cursor: pointer; 
+                            width: 100%; text-align: left; padding: 10px 15px; font-size: 1em;">Cerrar Sesión </button>
+                </form>
+                <hr style="margin: 10px 0;">
+                <a href="{% url 'crear_publicacion' %}">Publicar</a>
+                <a href="{% url 'muro_prestamos' %}">Muro Prestamos</a>
+                <a href="{% url 'muro_ayudas' %}">Muro Ayudas</a>
+                <a href="{% url 'muro_servicio' %}">Muro Servicio</a>
+
+            {% else %}
+                <span style="padding: 15px; display: block; color: white;">Si quieres acceder al menu debes iniciar sesion</span> 
+
+            {% endif %}
         </div>
     <header class="navbar">       
 
@@ -41,8 +55,14 @@
 
         <div class="Nav-Boton">
 
-            <a href="#" class="config-boton login-button">
-                <img src="{% static 'images/logo-registro.svg' %}">
+            <a href="{% url 'login' %}" class="config-boton login-button">
+                <img src="{% static 'images/logo-iniciar sesion.svg' %}">
+            </a>
+
+            <img src="{% static 'images/logo-slash.svg' %}" class="slash">
+
+            <a href="{% url 'registro' %}" class="config-boton login-button">
+                <img src="{% static 'images/logo-registrarse.svg' %}">
             </a>
             <button class="config-boton menu-button" onclick="abrirmenu()">
                 <img src="{% static 'images/logo-menu.svg' %}">
@@ -50,7 +70,7 @@
         </div>
     </header>
 
-
+{% block content %}
     <main class="contenido-principal">
 
         <div class="barra-busqueda">
@@ -59,8 +79,8 @@
         </div>
 
         <div class="botones-enlaces"> 
-            <a href="https://linktr.ee/ramos.usm" class="config-boton-link linktree-usm">
-                <img src="{% static 'images/logo-linktree.svg' %}" alt="Linktree"  class="logo-enlace">
+            <a href="https://biblioteca.usm.cl/inicio" class="config-boton-link bibloteca-usm">
+                <img src="{% static 'images/logo-blibloteca.svg' %}" alt="bibloteca"  class="logo-enlace">
             </a>
             
             <a href="https://siga.usm.cl/pag/home.jsp" class="config-boton-link siga-usm">
@@ -74,9 +94,21 @@
             <a href="https://aula.usm.cl/portada/index.php" class="config-boton-link aula-usm">
                 <img src="{% static 'images/logo-aula usm.svg' %}" alt="Aula"  class="logo-enlace">
             </a>
+
+            <a href=""  class="empty">
+            </a>
+
+            <a href="https://linktr.ee/ramos.usm" class="config-boton-link linktree-usm">
+                <img src="{% static 'images/logo-linktree.svg' %}" alt="Linktree"  class="logo-enlace">
+            </a>
+            <a href="https://vra.usm.cl/calendario-academico" class="config-boton-link calendario-usm">
+                <img src="{% static 'images/logo-calendario.svg' %}" alt="calendario"  class="logo-enlace">
+            </a>
+            <a href=""  class="empty">
+            </a>
         </div>
     </main>
 
-
+{% endblock %}
 </body>
 </html>
