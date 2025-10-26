@@ -144,21 +144,13 @@ body {
 }
 
 a.linktree-usm { background: #a0b9a8;}
-<<<<<<< HEAD
 a.bibloteca-usm{background: #ffa18e;}
 a.siga-usm { background: #f88998; }
 a.sireb-usm { background: #e680b1; }
 a.aula-usm { background: #da87cc; }
 a.calendario-usm{background: #a58bd2;}
 a.empty{background-color: none;}
-=======
-.bibloteca-usm{background: #ffa18e;}
-a.siga-usm { background: #f88998; }
-a.sireb-usm { background: #e680b1; }
-a.aula-usm { background: #da87cc; }
-.calendario-usm{background: #a58bd2;}
-.empty{background-color: none;}
->>>>>>> 821da8a55016bf1e66c56969762ea9b9133d7d8c
+
 
 .botones-enlaces{
     display: grid;
