@@ -143,6 +143,10 @@ body {
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
+.asistente img{
+    height: 10%;
+}
+
 a.linktree-usm { background: #a0b9a8;}
 a.bibloteca-usm{background: #ffa18e;}
 a.siga-usm { background: #f88998; }
@@ -160,16 +164,6 @@ a.empty{background-color: none;}
     margin-bottom: 30px;
 }
 
-
-.barra-busqueda {
-display: flex;
-justify-content: center;
-width: 80%;
-margin: 30px auto 50px auto;
-border: 2px solid #ccc;
-border-radius: 25px;
-overflow: hidden;
-}
 
 .barra-busqueda input[type="text"]{
     flex-grow: 1;
