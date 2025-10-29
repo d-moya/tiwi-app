@@ -20,13 +20,13 @@ def home_publicar_view(request):
     return render(request,'publicar/inicio_publicar.html')
 
 def publicar_ayudas_view(request):
-    return validar(request,FormAyudas,'AYUDAS', 'muro_ayudas', 'publicar/publicar_ayudas.html')
+    return validar(request,FormAyudas,'AYUDAS', 'muro_ayudas', 'publicar/Encuesta_ayudantia.html')
 
 def publicar_prestamos_view(request):
-    return validar(request,FormPrestamos,'PRESTAMOS', 'muro_prestamo', 'publicar/publicar_prestamo.html')
+    return validar(request,FormPrestamos,'PRESTAMOS', 'muro_prestamo', 'publicar/Encuesta_prestamo.html')
 
 def publicar_tutorias_view(request):
-    return validar(request,FormTutoria,'SERVICIOS', 'muro_tutoria', 'publicar/publicar_tutoria.html')
+    return validar(request,FormTutoria,'SERVICIOS', 'muro_tutoria', 'publicar/Encuesta_tutoria.html')
 
 def muro_prestamos_view(request):
     return render(request, 'Muros/muro_prestamo.html', {'muro_nombre': 'Préstamos'})
