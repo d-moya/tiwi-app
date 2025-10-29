@@ -40,28 +40,18 @@ body {
     display: block;
 }
 
-.logo-choripan{
-    background-color:none;
-    height: 100%;
+.logo-grupo-izquierdo {
     display: flex;
-    width: 25%;
-    padding: 0;
-    justify-content: center;
-    border: none;
-    align-items: center;
-    justify-content: center;
-}
-.logo-usm{    
-    align-items: center;
-    justify-content: center;
-    background-color:none;
-    border: none;
+    align-items: center; 
+    gap: 15px; 
     height: 100%;
-    display: flex;
-    padding: 0;
-    width: 25%;
-    justify-content: center;
 }
+
+.logo-grupo-izquierdo img:nth-child(2) {
+    height: 60px; 
+    width: auto;
+}
+
 
 .Nav-Boton {
     display: flex;
@@ -143,13 +133,96 @@ body {
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
+.Asistente-Virtual {
+    position: relative; 
+    display: flex;
+    align-items: flex-end;
+    margin-top: 80px; 
+    margin-left: 20px; 
+    margin-bottom: 20px; 
+    gap: 20px;
+    z-index: 1; 
+}
+
+.Asistente {
+    position: relative;
+}
+
+.choripan-img {
+    width: 250px;
+    height: auto;
+    animation: aparecer 0.8s ease-out;
+}
+
+.globo-texto {
+    background: #333;
+    color: #fff;
+    padding: 1em 1.5em;
+    border-radius: 25px;
+    max-width: 320px;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: center;
+    position: relative;
+    bottom: 140px;             
+    animation: aparecer 1s ease-out;
+    display: flex;             
+    flex-direction: column;    
+    align-items: center;       
+    padding-bottom: 0.8em;
+}
+
+.globo-texto::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 60%;
+    transform: translateY(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #333 transparent transparent;
+}
+
+.boton-encuesta {
+    margin-top: 15px; 
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #DC6749; 
+    color: white;
+    border-radius: 20px; 
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton-encuesta:hover {
+    background-color: #A15180; 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 a.linktree-usm { background: #a0b9a8;}
 a.bibloteca-usm{background: #ffa18e;}
 a.siga-usm { background: #f88998; }
 a.sireb-usm { background: #e680b1; }
 a.aula-usm { background: #da87cc; }
 a.calendario-usm{background: #a58bd2;}
-a.empty{background-color: none;}
+a.empty{background-color: none ;
+cursor: default;}
 
 
 .botones-enlaces{
@@ -160,16 +233,6 @@ a.empty{background-color: none;}
     margin-bottom: 30px;
 }
 
-
-.barra-busqueda {
-display: flex;
-justify-content: center;
-width: 80%;
-margin: 30px auto 50px auto;
-border: 2px solid #ccc;
-border-radius: 25px;
-overflow: hidden;
-}
 
 .barra-busqueda input[type="text"]{
     flex-grow: 1;
