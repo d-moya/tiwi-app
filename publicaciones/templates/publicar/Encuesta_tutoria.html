@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuesta de tutorias</title>
+    <link rel="stylesheet" href="{% static 'publicar/style.css' %}">
+</head>
+<body>
+
+    <h1>Formulario de Tutorías</h1>
+    <p>Agradecemos tu tiempo para responder estas breves preguntas.</p>
+
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Pregunta de Intereses</legend>
+            
+            <p>1. ¿De que forma tu quisieras reunirte en la ayudantia?</p>
+            <div>
+                <input type="checkbox" id="canal3" name="canales[]" value="Reunion Presencial">
+                <label for="canal3">Reunion Presencial</label><br>
+
+                <input type="checkbox" id="canal4" name="canales[]" value="Reunion Online">
+                <label for="canal4">Reunion Online</label>
+            </div>
+            <p>2.¿De que manera te acomoda mas comunicarte con el ayudante?</p>
+            <div>
+                <input type="checkbox" id="canal1" name="canales[]" value="Email">
+                <label for="canal1">Correo Institucional</label><br>
+                
+                <input type="checkbox" id="canal2" name="canales[]" value="Redes Sociales">
+                <label for="canal2">Redes Sociales (Instagram, Facebook, WhatsApp, etc.)</label><br>
+
+
+            </div>
+        </fieldset>
+
+        <br>
+
+        <div>
+            <button type="submit" href="{%url 'home'%}">Siguiente</button>
+        </div>
+
+    </form>
+
+</body>
+</html>

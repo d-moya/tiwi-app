@@ -37,6 +37,7 @@ class Publicacion(models.Model):
     asignatura = models.CharField(max_length=20, choices=DEPARTAMENTOS, blank=True, null=True)
     materialPrestamo = models.CharField(max_length=150, blank=True, null=True)
     cantMaterial = models.PositiveIntegerField(blank=True, null=True)
+    titulo = models.CharField(max_length=150, blank=True, null=True)
 
 def __str__(self):
         return f"[{self.get_tipo_muro_display()}] {self.usuario.username}"
