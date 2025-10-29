@@ -153,7 +153,8 @@ a.siga-usm { background: #f88998; }
 a.sireb-usm { background: #e680b1; }
 a.aula-usm { background: #da87cc; }
 a.calendario-usm{background: #a58bd2;}
-a.empty{background-color: none;}
+a.empty{background-color: none ;
+cursor: default;}
 
 
 .botones-enlaces{
