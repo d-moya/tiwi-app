@@ -74,6 +74,7 @@
         </div>
     </header>
 
+    {% if request.path != '/login/' and request.path != '/usuarios/registro/' %}
     <div class="Asistente-Virtual">
         <div class="Asistente">
             <img src="{% static 'images/choripan.png' %}" alt="Asistente Choripán" class="choripan-img">
@@ -82,11 +83,12 @@
             ¡Bienvenido! Te invito a responder esta encuesta para conocerte mejor y poder brindarte una mejor ayuda.
 
             <a href="" class="boton-encuesta">
-
                 Responder Encuesta
             </a>
         </div>
     </div>
+     {% endif %}
+
 
 {% block content %}
     <main class="contenido-principal">
