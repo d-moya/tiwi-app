@@ -6,10 +6,11 @@ class FormAyudas(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'modalidad', 'tipoSesion', 'asignatura', 'contenido'
+            'titulo', 'modalidad', 'tipoSesion', 'asignatura', 'contenido'
         ]
 
         labels = {
+            'titulo': 'Ingresa titulo de ña publicacion',
             'modalidad': 'Modalidad de Asistencia',
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
@@ -17,6 +18,7 @@ class FormAyudas(forms.ModelForm):
 
         }
         widgets = {
+            'titulo': forms.TextInput(attrs={'class':'#'}),
             'modalidad' : forms.Select(attrs={'class':'#'}),
             'tipoSesion' : forms.Select(attrs={'class': '#'}),
             'asignatura' : forms.Select(attrs={'class': '#'}),
@@ -30,10 +32,11 @@ class FormTutoria(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'modalidad', 'tipoSesion', 'asignatura', 'contenido',
+            'titulo','modalidad', 'tipoSesion', 'asignatura', 'contenido',
         ]
 
         labels = {
+            'titulo': 'Ingresa titulo de la publicacion',
             'modalidad': 'Modalidad de Asistencia',
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
@@ -42,6 +45,7 @@ class FormTutoria(forms.ModelForm):
         }
 
         widgets = {
+            'titulo': forms.TextInput(attrs={'class':'#'}),
             'modalidad' : forms.Select(attrs={'class':'#'}),
             'tipoSesion' : forms.Select(attrs={'class': '#'}),
             'asignatura' : forms.Select(attrs={'class': '#'}),
@@ -54,16 +58,18 @@ class FormPrestamos(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'materialPrestamo', 'cantMaterial','contenido',
+            'titulo','materialPrestamo', 'cantMaterial','contenido',
         ]
 
         labels = {
+            'titulo': 'Ingresa titulo de la publicacion',
             'materialPrestamo': 'Nombre del objeto de prestamo',
             'cantMaterial': 'Cantidad',
             'contenido': 'Agrega inforacion estra sobre la ayuda que necesitas (importante: dejar dato de contacto)',
 
         }
         widgets = {
+            'titulo': forms.TextInput(attrs={'class': '#'}),
             'materialPrestamo': forms.TextInput(attrs={'class': '#'}),
             'cantMaterial': forms.NumberInput(attrs={'class': '#'}),
             'contenido': forms.Textarea(attrs={'class': '#'}),
