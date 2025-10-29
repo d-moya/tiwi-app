@@ -44,18 +44,17 @@
         </div>
     <header class="navbar">       
 
-        <a href="{% url 'home' %}" class="config-boton logo-casita">
-            <img src="{% static 'images/logo-casita (2).svg' %}">
-        </a>
-
-        <img src="{% static 'images/logo-choripan.svg' %}" class="logo-choripan">
-
-        <img src="{% static 'images/logo-usm.svg' %}" class="logo-usm">
-
+        <div class="logo-grupo-izquierdo">
+            <a href="{% url 'home' %}" class="config-boton logo-casita">
+                <img src="{% static 'images/logo-casita (2).svg' %}">
+            </a>
+            
+            <img src="{% static 'images/logo-choripan.svg' %}">
         </div>
 
         <div class="Nav-Boton">
 
+            {% if request.path != '/login/' and request.path != '/usuarios/registro/' %}
 
             <a href="{% url 'login' %}" class="config-boton login-button">
                 <img src="{% static 'images/logo-iniciar sesion.svg' %}">
@@ -66,6 +65,8 @@
             <a href="{% url 'registro' %}" class="config-boton login-button">
                 <img src="{% static 'images/logo-registrarse.svg' %}">
             </a>
+
+            {% endif %}
             
             <button class="config-boton menu-button" onclick="abrirmenu()">
                 <img src="{% static 'images/logo-menu.svg' %}">
@@ -104,15 +105,21 @@
             </a>
         </div>
 
-        <div class="Asistente-Virtual">
-
-            <a class="Asistente">
-            <img src="{% static 'images/choripan.png' %}" width="20%" height="20%"  >
-            </a>
-
-        </div>  
-
     </main>
+
+    <div class="Asistente-Virtual">
+        <div class="Asistente">
+            <img src="{% static 'images/choripan.png' %}" alt="Asistente Choripán" class="choripan-img">
+        </div>
+        <div class="globo-texto">
+            ¡Bienvenido! Te invito a responder esta encuesta para conocerte mejor y poder brindarte una mejor ayuda.
+
+            <a href="" class="boton-encuesta">
+
+                Responder Encuesta
+            </a>
+        </div>
+    </div>
 
 {% endblock %}
 </body>

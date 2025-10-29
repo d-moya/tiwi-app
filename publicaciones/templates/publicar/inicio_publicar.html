@@ -5,14 +5,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Publicación</title>
-    <link rel="stylesheet" href="{% static 'publicar/style.css' %}">
+    <link rel="stylesheet" href="{% static 'publicar/style_publicaciones.css' %}">
 </head>
-<body>
-    <h1>Buena suerteeeee</h1>
 
-    <a href="{% url 'form_ayudas' %}">formulario ayudas</a>
-    <a href="{% url 'form_tutoria' %}">formulario tutorias</a>
-    <a href="{% url 'form_prestamo' %}">formulario prestamos</a>
+<script>
+  function cerrarmenu(){
+    document.getElementById("ladomenu").style.width="0";
+
+  }
+  function abrirmenu(){
+    document.getElementById("ladomenu").style.width="300px";
+  }  
+</script>
+
+     <div class="menulado" id="ladomenu">
+            <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
+
+            {% if user.is_authenticated %}
+                <span class= "" style="padding: 15px; display: block; color: white;">{{ user.username }}</span> 
+        
+                <form method="post" action="{% url 'logout' %}" style="display: block; padding: 0;">
+                    {% csrf_token %} <button type="submit"
+                     style="background: none; border: none; color: white; cursor: pointer; 
+                            width: 100%; text-align: left; padding: 10px 15px; font-size: 1em;">Cerrar Sesión </button>
+                </form>
+                <hr style="margin: 10px 0;">
+                <a href="{% url 'home_publicar' %}">Publicar</a>
+                <a href="{% url 'muro_prestamos' %}">Muro Préstamos</a>
+                <a href="{% url 'muro_ayudas' %}">Muro Ayudas</a>
+                <a href="{% url 'muro_servicio' %}">Muro Servicios</a>
+
+            {% else %}
+                <span style="padding: 15px; display: block; color: white;">Si quieres acceder al menu debes iniciar sesion</span> 
+
+            {% endif %}
+        </div>
+    <header class="navbar">       
+
+        <div class="logo-grupo-izquierdo">
+            <a href="{% url 'home' %}" class="config-boton logo-casita">
+                <img src="{% static 'images/logo-casita (2).svg' %}">
+            </a>
+            
+            <img src="{% static 'images/logo-choripan.svg' %}">
+        </div>
+
+        <div class="Nav-Boton">
+            <button class="config-boton menu-button" onclick="abrirmenu()">
+                <img src="{% static 'images/logo-menu.svg' %}">
+            </button>
+        </div>
+    </header>
+
+<body>
+  <main class="contenido-principal">
+        
+        <h1>Selecciona el tipo de publicación:</h1> 
+        
+        <div class="botones-enlaces botones-publicar"> 
+        
+            <a href="{% url 'form_ayudas' %}" class="config-boton-link ayudas-publicar">
+                <img src="" alt="Ayudas" class="logo-enlace">
+                <span>Solicitar Ayuda</span>
+            </a>
+
+            <a href="{% url 'form_tutoria' %}" class="config-boton-link tutorias-publicar">
+                <img src="" alt="Tutorías" class="logo-enlace">
+                <span>Ofrecer/Pedir Tutoría</span>
+            </a>
+
+            <a href="{% url 'form_prestamo' %}" class="config-boton-link prestamos-publicar">
+                <img src="" alt="Préstamos" class="logo-enlace">
+                <span>Solicitar Préstamo</span>
+            </a>
+            
+            </div>
+    </main>
 
     </form>
     </body>
