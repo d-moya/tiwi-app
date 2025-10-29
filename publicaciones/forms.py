@@ -54,7 +54,7 @@ class FormPrestamos(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'materialPrestamo', 'cantMaterial','contenido', #'fotoMaterial'
+            'materialPrestamo', 'cantMaterial','contenido',
         ]
 
         labels = {
