@@ -17,7 +17,11 @@ class FormAyudas(forms.ModelForm):
 
         }
         widgets = {
-
+            'modalidad' : forms.Select(attrs={'class':'#'}),
+            'tipoSesion' : forms.Select(attrs={'class': '#'}),
+            'asignatura' : forms.Select(attrs={'class': '#'}),
+            'contenido' : forms.Textarea(attrs={'class': '#'}),
+            
 
         }
 
@@ -26,7 +30,7 @@ class FormTutoria(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'modalidad', 'tipoSesion', 'asignatura', 'contenido'
+            'modalidad', 'tipoSesion', 'asignatura', 'contenido',
         ]
 
         labels = {
@@ -38,7 +42,10 @@ class FormTutoria(forms.ModelForm):
         }
 
         widgets = {
-            
+            'modalidad' : forms.Select(attrs={'class':'#'}),
+            'tipoSesion' : forms.Select(attrs={'class': '#'}),
+            'asignatura' : forms.Select(attrs={'class': '#'}),
+            'contenido' : forms.Textarea(attrs={'class': '#'}),
 
         }
 
@@ -47,7 +54,7 @@ class FormPrestamos(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'materialPrestamo', 'cantMaterial','contenido'
+            'materialPrestamo', 'cantMaterial','contenido', #'fotoMaterial'
         ]
 
         labels = {
@@ -57,6 +64,8 @@ class FormPrestamos(forms.ModelForm):
 
         }
         widgets = {
-            
+            'materialPrestamo': forms.TextInput(attrs={'class': '#'}),
+            'cantMaterial': forms.NumberInput(attrs={'class': '#'}),
+            'contenido': forms.Textarea(attrs={'class': '#'}),
 
         }
