@@ -35,7 +35,7 @@
                 <a href="{% url 'muro_prestamos' %}">Muro Préstamos</a>
                 <a href="{% url 'muro_ayudas' %}">Muro Ayudas</a>
                 <a href="{% url 'muro_servicio' %}">Muro Servicios</a>
-                <a href="{% url 'form_ayudas' %}">Testeo ayudantia</a>
+                <a href="{% url 'preferencias_ayudas' %}">Testeo ayudantia</a>
 
             {% else %}
                 <span style="padding: 15px; display: block; color: white;">Si quieres acceder al menu debes iniciar sesion</span> 
@@ -82,7 +82,7 @@
         <div class="globo-texto">
             ¡Bienvenido! Te invito a responder esta encuesta para conocerte mejor y poder brindarte una mejor ayuda.
 
-            <a href="" class="boton-encuesta">
+            <a href="{% url 'preferencias_ayudas' %}" class="boton-encuesta">
                 Responder Encuesta
             </a>
         </div>
