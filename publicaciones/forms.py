@@ -10,7 +10,7 @@ class FormAyudas(forms.ModelForm):
         ]
 
         labels = {
-            'titulo': 'Ingresa titulo de ña publicacion',
+            'titulo': 'Titulo de la publicacion',
             'modalidad': 'Modalidad de Asistencia',
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
@@ -36,7 +36,7 @@ class FormTutoria(forms.ModelForm):
         ]
 
         labels = {
-            'titulo': 'Ingresa titulo de la publicacion',
+            'titulo': 'itulo de la publicacion',
             'modalidad': 'Modalidad de Asistencia',
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
@@ -62,7 +62,7 @@ class FormPrestamos(forms.ModelForm):
         ]
 
         labels = {
-            'titulo': 'Ingresa titulo de la publicacion',
+            'titulo': 'Titulo de la publicacion',
             'materialPrestamo': 'Nombre del objeto de prestamo',
             'cantMaterial': 'Cantidad',
             'contenido': 'Agrega inforacion estra sobre la ayuda que necesitas (importante: dejar dato de contacto)',

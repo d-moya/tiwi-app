@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import FormAyudas, FormTutoria, FormPrestamos 
+from .models import Publicacion
 
 def validar(request, form_class, tipo_muro_valor, redirect_name, template_name):
     if request.method == 'POST':
@@ -29,10 +30,27 @@ def publicar_tutorias_view(request):
     return validar(request,FormTutoria,'SERVICIOS', 'muro_tutoria', 'publicar/publicar_tutoria.html')
 
 def muro_prestamos_view(request):
-    return render(request, 'Muros/muro_prestamo.html', {'muro_nombre': 'Préstamos'})
+    publicaciones = Publicacion.objects.filter(tipoMuro = 'PRESTAMOS').order_by('fechaCreacion')
+    datitos = {
+        'nombre' : 'Prestamos',
+        'publicacion' : publicaciones,
+    }
+    return render(request, 'Muros/muro_prestamo.html', datitos)
+
 
 def muro_ayudas_view(request):
-    return render(request, 'Muros/muro_ayudas.html', {'muro_nombre': 'Ayudas'})
+    publicaciones = Publicacion.objects.filter(tipoMuro = 'AYUDAS').order_by('fechaCreacion')
+    datitos = {
+        'nombre' : 'Ayudas',
+        'publicacion' : publicaciones,
+    }
+    return render(request, 'Muros/muro_ayudas.html', datitos)
+
 
 def muro_servicio_view(request):
-    return render(request, 'Muros/muro_tutoria.html', {'muro_nombre': 'Servicio'})
+    publicaciones = Publicacion.objects.filter(tipoMuro = 'SERVICIOS').order_by('-fechaCreacion')
+    datitos = {
+        'nombre' : 'Servicios',
+        'publicacion' : publicaciones,
+    }
+    return render(request, 'Muros/muro_tutoria.html', datitos)
