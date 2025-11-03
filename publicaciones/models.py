@@ -38,6 +38,7 @@ class Publicacion(models.Model):
     materialPrestamo = models.CharField(max_length=150, blank=True, null=True)
     cantMaterial = models.PositiveIntegerField(blank=True, null=True)
     titulo = models.CharField(max_length=150, blank=True, null=True)
+    fotoMaterial = models.ImageField(upload_to='publicaciones_fotos/', blank=True, null=True)
 
 def __str__(self):
         return f"[{self.get_tipo_muro_display()}] {self.usuario.username}"

@@ -59,18 +59,17 @@ class FormPrestamos(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'titulo','materialPrestamo', 'cantMaterial','contenido',
+            'materialPrestamo', 'cantMaterial','contenido', 'fotoMaterial',
         ]
 
         labels = {
-            'titulo': 'Titulo de la publicacion',
             'materialPrestamo': 'Nombre del objeto de prestamo',
             'cantMaterial': 'Cantidad',
             'contenido': 'Agrega inforacion estra sobre la ayuda que necesitas (importante: dejar dato de contacto)',
+            'fotoMaterial' : 'Inserta imagen aqui'
 
         }
         widgets = {
-            'titulo': forms.TextInput(attrs={'class': '#'}),
             'materialPrestamo': forms.TextInput(attrs={'class': '#'}),
             'cantMaterial': forms.NumberInput(attrs={'class': '#'}),
             'contenido': forms.Textarea(attrs={'class': '#'}),

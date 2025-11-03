@@ -1,0 +1,57 @@
+{% block content %}
+<h2>Publicaciones de {{ nombre }}</h2>
+
+{% for pub in publicacion %}
+    <p>{{ pub.materialPrestamo }}</p>
+    <p>{{ pub.cantMaterial }}</p>
+    <p>{{ pub.contenido }}</p>
+    {% if pub.fotoMaterial %}
+        <img src="{{ pub.fotoMaterial.url }}" 
+             alt="Imagen de {{ pub.materialPrestamo }}" 
+             style="max-width: 100%; height: auto; border: 1px solid #ccc;"> 
+    {% endif %}
+    <p>{{ pub.usuario.username }}</p>
+    <p>{{ pub.fechaCreacion|date:"d M Y H:i" }}</p>
+
+    <p>
+        <button onclick="verComentarios('comentarios-{{ pub.id }}')">
+            Comentarios ({{ pub.Comentarios.count }})
+        </button>
+    </p>
+    <div id="comentarios-{{ pub.id }}">
+        
+        {% for comentario in pub.Comentarios.all %}
+            <p>
+                {{ comentario.contenido }}
+                {{ comentario.usuario.username }}
+                {{ comentario.fechaCreacion|date:"H:i" }}
+                
+            </p>
+        {% empty %}
+            <p>No hay comentarios.</p>
+        {% endfor %}
+
+        <form method="POST" action="{% url 'crear_comentario' pub.id pub.tipoMuro %}">
+            {% csrf_token %}
+            {{ comentarios.as_p }} 
+            <button type="submit">Comentar</button>
+        </form>
+    </div>
+    <hr> 
+{% empty %}
+    <p>No hay publicaciones</p>
+{% endfor %}
+
+<script>
+    function verComentarios(elementId) {
+        var comentariosDiv = document.getElementById(elementId);
+    
+        if (comentariosDiv.style.display === "none") {
+            comentariosDiv.style.display = "block";
+        } else {
+            comentariosDiv.style.display = "none";
+        }
+    }
+</script>
+
+{% endblock content %}
