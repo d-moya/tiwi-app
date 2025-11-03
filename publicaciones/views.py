@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import FormAyudas, FormTutoria, FormPrestamos
-from .models import Publicacion
+from .forms import FormAyudas, FormTutoria, FormPrestamos, FormComentarios
+from .models import Publicacion, Comentario
 
 def validar(request, form_class, tipo_muro_valor, redirect_name, template_name):
     if request.method == 'POST':
@@ -34,6 +34,7 @@ def muro_prestamos_view(request):
     datitos = {
         'nombre' : 'Prestamos',
         'publicacion' : publicaciones,
+        'comentarios' : FormComentarios()
     }
     return render(request, 'Muros/muro_prestamo.html', datitos)
 
@@ -42,6 +43,7 @@ def muro_ayudas_view(request):
     datitos = {
         'nombre' : 'Ayudas',
         'publicacion' : publicaciones,
+        'comentarios' : FormComentarios()
     }
     return render(request, 'Muros/muro_ayudas.html', datitos)
 
@@ -50,6 +52,26 @@ def muro_servicio_view(request):
     datitos = {
         'nombre' : 'Servicios',
         'publicacion' : publicaciones,
+        'comentarios' : FormComentarios()
     }
     return render(request, 'Muros/muro_tutoria.html', datitos)
 
+
+@login_required
+def comentar(request, publicacion_id, tipo_muro ):
+    urlMuros = {
+        'AYUDAS': 'muro_ayudas',
+        'PRESTAMOS': 'muro_prestamos',
+        'SERVICIOS' : 'muro_servicio',
+    }
+    publicacion = get_object_or_404(Publicacion, id=publicacion_id)
+    if request.method == 'POST':
+        form = FormComentarios(request.POST)
+        
+        if form.is_valid():
+            comentario = form.save(commit=False)
+            comentario.publicacion = publicacion
+            comentario.usuario = request.user 
+            comentario.save()
+        return redirect(urlMuros.get(tipo_muro))
+    return redirect(urlMuros.get(tipo_muro))

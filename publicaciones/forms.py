@@ -1,5 +1,6 @@
 from django import forms
 from .models import Publicacion
+from .models import Comentario
 
 class FormAyudas(forms.ModelForm):
     class Meta:
@@ -74,4 +75,13 @@ class FormPrestamos(forms.ModelForm):
             'cantMaterial': forms.NumberInput(attrs={'class': '#'}),
             'contenido': forms.Textarea(attrs={'class': '#'}),
 
+        }
+
+class FormComentarios(forms.ModelForm):
+    class Meta:
+        model = Comentario
+
+        fields = ['contenido']
+        widgets = {
+            'contenido': forms.Textarea(attrs={'rows': 2, 'placeholder': 'Escribe tu comentario','class': '#'})
         }

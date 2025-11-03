@@ -1,16 +1,30 @@
-{% block title %}Muro de {{ nombre }}{% endblock %}
 {% block content %}
-    <h2>Publicaciones de {{ nombre }}</h2>
-    
-    {% for pub in publicacion %}
-            <h3>{{ pub.titulo }}</h3>
-            <p>{{ pub.usuario.username}}</p>
-            <p>{{ pub.contenido }}</p>
-            <p>{{pub.fechaCreacion|date:"d M Y H:i" }}</p>
-            <p>Categorias| {{ pub.modalidad }} {{ pub.tipoSesion }} {{ pub.asignatura }} </p>
-            
+<h2>Publicaciones de {{ nombre }}</h2>
+
+{% for pub in publicacion %}
+    <h3>{{ pub.titulo }}</h3>
+    <p>{{ pub.usuario.username }}</p>
+    <p>{{ pub.contenido }}</p>
+    <p>{{ pub.fechaCreacion|date:"d M Y H:i" }}</p>
+    <p>Categorias {{ pub.modalidad }} {{ pub.tipoSesion }} {{ pub.asignatura }} </p>
+
+    <h4>Comentarios:</h4>
+    {% for comentario in pub.Comentarios.all %}
+        <p>
+            <strong>{{ comentario.usuario.username }}</strong> 
+            <small>({{ comentario.fechaCreacion|date:"H:i" }})</small>: 
+            {{ comentario.contenido }}
+        </p>
     {% empty %}
-        <p>No hay publicaciones</p>
+        <p>No hay comentarios.</p>
     {% endfor %}
-    
+        
+    <form method="POST" action="{% url 'crear_comentario' pub.id pub.tipoMuro %}">
+        {% csrf_token %}
+        {{ comentarios.as_p }}
+        <button type="submit">Comentar</button>
+    </form>
+    <hr> {% empty %}
+    <p>No hay publicaciones</p>
+{% endfor %}
 {% endblock content %}

@@ -41,3 +41,13 @@ class Publicacion(models.Model):
 
 def __str__(self):
         return f"[{self.get_tipo_muro_display()}] {self.usuario.username}"
+
+class Comentario(models.Model):
+      publicacion = models.ForeignKey(Publicacion, on_delete=models.CASCADE, related_name='Comentarios')
+      usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+      contenido = models.TextField(verbose_name='Comentario')
+      fechaCreacion = models.DateTimeField(auto_now_add=True)
+
+def __str__(self):
+      return f"{self.usuario.username} comentó en {self.publicacion.titulo}"
+
