@@ -32,6 +32,14 @@
             <button type="submit">Comentar</button>
         </form>
     </div>
+    {% if pub.usuario == user %}
+        <form method="POST" action="{% url 'borrarPub' pub.id %}">
+            {% csrf_token %}
+            <button type="submit">
+                 Eliminar
+            </button>
+        </form>
+    {% endif %}
     <hr> 
 {% empty %}
     <p>No hay publicaciones</p>

@@ -13,4 +13,5 @@ urlpatterns = [
     path('Encuesta/prestamos', views.publicar_prestamos_view, name='preferencias_prestamo'),
     path('Encuesta/servicio', views.publicar_tutorias_view, name='preferencias_tutoria'),
     path('publicacion/<int:publicacion_id>/comentar/<str:tipo_muro>/', views.comentar, name='crear_comentario'),
+    path('publicacion/eliminar/<int:publicacion_id>/', views.eliminarPub, name='borrarPub'),
 ]

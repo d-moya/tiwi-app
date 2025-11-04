@@ -3,6 +3,12 @@ from django.contrib.auth.decorators import login_required
 from .forms import FormAyudas, FormTutoria, FormPrestamos, FormComentarios
 from .models import Publicacion, Comentario
 
+urlMuros = {
+        'AYUDAS': 'muro_ayudas',
+        'PRESTAMOS': 'muro_prestamos',
+        'SERVICIOS' : 'muro_servicio',
+}
+    
 def validar(request, formulario, tipo_muro_valor, nombreurl, nombreTemplate):
     if request.method == 'POST':
         form = formulario(request.POST, request.FILES) 
@@ -27,7 +33,7 @@ def publicar_prestamos_view(request):
     return validar(request,FormPrestamos,'PRESTAMOS', 'muro_prestamos', 'publicar/publicar_prestamo.html')
 
 def publicar_tutorias_view(request):
-    return validar(request,FormTutoria,'SERVICIOS', 'muro_tutoria', 'publicar/publicar_tutoria.html')
+    return validar(request,FormTutoria,'SERVICIOS', 'muro_servicio', 'publicar/publicar_tutoria.html')
 
 def muro_prestamos_view(request):
     publicaciones = Publicacion.objects.filter(tipoMuro = 'PRESTAMOS').order_by('fechaCreacion')
@@ -59,15 +65,9 @@ def muro_servicio_view(request):
 
 @login_required
 def comentar(request, publicacion_id, tipo_muro ):
-    urlMuros = {
-        'AYUDAS': 'muro_ayudas',
-        'PRESTAMOS': 'muro_prestamos',
-        'SERVICIOS' : 'muro_servicio',
-    }
     publicacion = get_object_or_404(Publicacion, id=publicacion_id)
     if request.method == 'POST':
         form = FormComentarios(request.POST)
-        
         if form.is_valid():
             comentario = form.save(commit=False)
             comentario.publicacion = publicacion
@@ -75,3 +75,15 @@ def comentar(request, publicacion_id, tipo_muro ):
             comentario.save()
         return redirect(urlMuros.get(tipo_muro))
     return redirect(urlMuros.get(tipo_muro))
+
+def eliminarPub(request, publicacion_id):
+    publicacion = get_object_or_404(Publicacion, id=publicacion_id)
+    muro = publicacion.tipoMuro
+    if request.method == 'POST':
+        if publicacion.usuario == request.user:
+            publicacion.delete()
+    urlMuro = urlMuros.get(muro)
+    return redirect(urlMuro)
+    
+
+    
