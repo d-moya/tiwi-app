@@ -30,6 +30,13 @@ TIPO_COMUNICACION =[
       ('CORREO','Correo Institucional'),
       ('OTROS','Redes Sociales (Instagram, Facebook, WhatsApp, etc.)')
 ]
+METODO_DE_ESTUDIO = [
+    ('MAPAS MENTALES','Mapas Mentales'),
+    ('RESUMENES','Resúmenes'),
+    ('TECNICA POMODORO','Técnica Pomodoro'),
+    ('TECNICAS DE MEMORIZACION','Técnicas de Memorización'),
+    ('APUNTES','Apuntes'),]
+   
 
 PREF_DIA =[('LUNES','Lunes'),('MARTES','Martes'),('MIERCOLES','Miercoles'),('JUEVES','Jueves'),('VIERNES','Viernes'),]
 
@@ -64,6 +71,8 @@ class FiltrarPreferencias(models.Model):
       usuario = models.OneToOneField(User, on_delete=models.CASCADE)
       modalidad = models.CharField(max_length=10, choices=MODALIDAD_SESION, blank=True, null=True)
       Comunicacion = models.CharField(max_length=59, choices=TIPO_COMUNICACION, blank=True, null=True)
-
+      metododeestudio = models.CharField(max_length=30, choices=METODO_DE_ESTUDIO, blank=True, null=True)
+      dias = models.CharField(max_length=10, choices=PREF_DIA, blank=True, null=True)
+      asignatura = models.CharField(max_length=20, choices=DEPARTAMENTOS, blank=True, null=True)
 
 

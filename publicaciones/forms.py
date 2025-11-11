@@ -1,4 +1,5 @@
 from django import forms
+from .models import FiltrarPreferencias
 from .models import Publicacion
 from .models import Comentario
 
@@ -92,16 +93,22 @@ class FormComentarios(forms.ModelForm):
         }
 class EncuestaAyudantia(forms.ModelForm):
     class Meta: 
-        model: Publicacion
+        model: FiltrarPreferencias
 
         fields =[
-          'modalidad','Comunicacion'
+          'modalidad','Comunicacion','metododeestudio','dias','asignatura',
         ]
         labels = {
-            "Tiporeunion":"¿De que forma tu quisieras reunirte en la ayudantia?",
-            "Comunicacion":"¿De que manera te acomoda mas comunicarte con el ayudante?",
+            "Tiporeunion":"¿De qué forma tu quisieras reunirte en la ayudantia?",
+            "Comunicacion":"¿De qué manera te acomoda mas comunicarte con el ayudante?",
+            "metododeestudio":"¿Cuál es metodo de estudio te acomoda más?",
+            "dias":"¿Que dias te acomodan mas para la ayudantia?",
+            "asignatura":"¿Que asignatura te gustaria para la ayudantia?",
         }
         widgets ={
-         "Tiporeunion": forms.CheckboxSelectMultiple(attrs={'class':'#'}),
-         "Comunicacion": forms.CheckboxSelectMultiple(attrs={'class':'#'}),
+        "Tiporeunion": forms.Select(attrs={'class':'#'}),
+        "Comunicacion": forms.Select(attrs={'class':'#'}),
+        "metododeestudio": forms.Select(attrs={'class':'#'}),
+        "dias": forms.Select(attrs={'class':'#'}),
+        "asignatura": forms.Select(attrs={'class':'#'}),
         }
