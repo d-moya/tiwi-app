@@ -7,7 +7,7 @@ class FormAyudas(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'titulo', 'modalidad', 'tipoSesion', 'asignatura', 'contenido'
+            'titulo', 'modalidad', 'tipoSesion', 'asignatura', 'contenido','diaPref',
         ]
 
         labels = {
@@ -15,6 +15,7 @@ class FormAyudas(forms.ModelForm):
             'modalidad': 'Modalidad de Asistencia',
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
+            'diaPref': 'Que dias te acomodan mas',
             'contenido': 'Agrega inforacion estra sobre la ayuda que necesitas (importante: dejar dato de contacto)',
 
         }
@@ -23,6 +24,7 @@ class FormAyudas(forms.ModelForm):
             'modalidad' : forms.Select(attrs={'class':'#'}),
             'tipoSesion' : forms.Select(attrs={'class': '#'}),
             'asignatura' : forms.Select(attrs={'class': '#'}),
+            'diaPref' : forms.Select(attrs={'class': '#'}),
             'contenido' : forms.Textarea(attrs={'class': '#'}),
             
 
@@ -33,7 +35,7 @@ class FormTutoria(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'titulo','modalidad', 'tipoSesion', 'asignatura', 'contenido',
+            'titulo','modalidad', 'tipoSesion', 'asignatura', 'contenido', 'diaPref',
         ]
 
         labels = {
@@ -41,6 +43,7 @@ class FormTutoria(forms.ModelForm):
             'modalidad': 'Modalidad de Asistencia',
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
+            'diaPref': 'Que dias te acomodan mas',
             'contenido': 'Agrega inforacion estra sobre la ayuda que necesitas (importante: dejar dato de contacto)',
 
         }
@@ -50,6 +53,7 @@ class FormTutoria(forms.ModelForm):
             'modalidad' : forms.Select(attrs={'class':'#'}),
             'tipoSesion' : forms.Select(attrs={'class': '#'}),
             'asignatura' : forms.Select(attrs={'class': '#'}),
+            'diaPref' : forms.Select(attrs={'class': '#'}),
             'contenido' : forms.Textarea(attrs={'class': '#'}),
 
         }

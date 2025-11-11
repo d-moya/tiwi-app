@@ -28,22 +28,25 @@ TIPO_MURO = [
 ]
 TIPO_COMUNICACION =[
       ('CORREO','Correo Institucional'),
-      {'OTROS','Redes Sociales (Instagram, Facebook, WhatsApp, etc.)'}
+      ('OTROS','Redes Sociales (Instagram, Facebook, WhatsApp, etc.)')
 ]
+
+PREF_DIA =[('LUNES','Lunes'),('MARTES','Martes'),('MIERCOLES','Miercoles'),('JUEVES','Jueves'),('VIERNES','Viernes'),]
 
 class Publicacion(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     tipoMuro = models.CharField(max_length=10, choices=TIPO_MURO)
     contenido = models.TextField(verbose_name='Comentario')
     fechaCreacion = models.DateTimeField(auto_now_add=True)
-    modalidad = models.CharField(max_length=10, choices=MODALIDAD_SESION, blank=True, null=True)
-    tipoSesion = models.CharField(max_length=15, choices=TIPO_SESION, blank=True, null=True)
-    asignatura = models.CharField(max_length=20, choices=DEPARTAMENTOS, blank=True, null=True)
-    materialPrestamo = models.CharField(max_length=150, blank=True, null=True)
+    modalidad = models.CharField(max_length=10, choices=MODALIDAD_SESION)
+    tipoSesion = models.CharField(max_length=15, choices=TIPO_SESION)
+    asignatura = models.CharField(max_length=20, choices=DEPARTAMENTOS)
+    materialPrestamo = models.CharField(max_length=150)
     cantMaterial = models.PositiveIntegerField(blank=True, null=True)
-    titulo = models.CharField(max_length=150, blank=True, null=True)
+    titulo = models.CharField(max_length=150)
     fotoMaterial = models.ImageField(upload_to='publicaciones_fotos/', blank=True, null=True)
-    Comunicacion = models.CharField(max_length=59, choices=TIPO_COMUNICACION, blank=True, null=True)
+    diaPref = models.CharField(max_length=15, choices=PREF_DIA, blank=True, null=True)
+
 
 def __str__(self):
         return f"[{self.get_tipo_muro_display()}] {self.usuario.username}"
@@ -56,4 +59,11 @@ class Comentario(models.Model):
 
 def __str__(self):
       return f"{self.usuario.username} comentó en {self.publicacion.titulo}"
+
+class FiltrarPreferencias(models.Model):
+      usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+      modalidad = models.CharField(max_length=10, choices=MODALIDAD_SESION, blank=True, null=True)
+      Comunicacion = models.CharField(max_length=59, choices=TIPO_COMUNICACION, blank=True, null=True)
+
+
 
