@@ -8,7 +8,7 @@ class FormAyudas(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'titulo', 'modalidad', 'tipoSesion', 'asignatura', 'contenido','diaPref',
+            'titulo', 'modalidad', 'tipoSesion', 'asignatura','dias','Comunicacion', 'contenido','metododeestudio',
         ]
 
         labels = {
@@ -17,7 +17,10 @@ class FormAyudas(forms.ModelForm):
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
             'diaPref': 'Que dias te acomodan mas',
+            "Comunicacion":"¿De qué manera te acomoda mas comunicarte con el ayudante?",
+            "metododeestudio":"¿Cuál es metodo de estudio te acomoda más?",
             'contenido': 'Agrega inforacion estra sobre la ayuda que necesitas (importante: dejar dato de contacto)',
+
 
         }
         widgets = {
@@ -25,7 +28,7 @@ class FormAyudas(forms.ModelForm):
             'modalidad' : forms.Select(attrs={'class':'#'}),
             'tipoSesion' : forms.Select(attrs={'class': '#'}),
             'asignatura' : forms.Select(attrs={'class': '#'}),
-            'diaPref' : forms.Select(attrs={'class': '#'}),
+            'dias' : forms.Select(attrs={'class': '#'}),
             'contenido' : forms.Textarea(attrs={'class': '#'}),
             
 
@@ -36,7 +39,7 @@ class FormTutoria(forms.ModelForm):
         model = Publicacion
 
         fields = [
-            'titulo','modalidad', 'tipoSesion', 'asignatura', 'contenido', 'diaPref',
+            'titulo', 'modalidad', 'tipoSesion', 'asignatura','dias','Comunicacion', 'contenido','metododeestudio',
         ]
 
         labels = {
@@ -44,8 +47,10 @@ class FormTutoria(forms.ModelForm):
             'modalidad': 'Modalidad de Asistencia',
             'tipoSesion': 'Tipo de Sesion',
             'asignatura': 'Escoge Departamento de Estudio',
-            'diaPref': 'Que dias te acomodan mas',
+            'dias': 'Que dias te acomodan mas',
             'contenido': 'Agrega inforacion estra sobre la ayuda que necesitas (importante: dejar dato de contacto)',
+            "Comunicacion":"¿De qué manera te acomoda mas comunicarte con el ayudante?",
+            "metododeestudio":"¿Cuál es metodo de estudio te acomoda más?",
 
         }
 
@@ -91,22 +96,25 @@ class FormComentarios(forms.ModelForm):
         widgets = {
             'contenido': forms.Textarea(attrs={'rows': 2, 'placeholder': 'Escribe tu comentario','class': '#'})
         }
+
+
 class EncuestaAyudantia(forms.ModelForm):
     class Meta: 
-        model: FiltrarPreferencias
+        model= FiltrarPreferencias
 
         fields =[
           'modalidad','Comunicacion','metododeestudio','dias','asignatura',
         ]
+
         labels = {
-            "Tiporeunion":"¿De qué forma tu quisieras reunirte en la ayudantia?",
+            "modalidad":"¿De qué forma tu quisieras reunirte en la ayudantia?",
             "Comunicacion":"¿De qué manera te acomoda mas comunicarte con el ayudante?",
             "metododeestudio":"¿Cuál es metodo de estudio te acomoda más?",
             "dias":"¿Que dias te acomodan mas para la ayudantia?",
             "asignatura":"¿Que asignatura te gustaria para la ayudantia?",
         }
         widgets ={
-        "Tiporeunion": forms.Select(attrs={'class':'#'}),
+        "modalidad": forms.Select(attrs={'class':'#'}),
         "Comunicacion": forms.Select(attrs={'class':'#'}),
         "metododeestudio": forms.Select(attrs={'class':'#'}),
         "dias": forms.Select(attrs={'class':'#'}),

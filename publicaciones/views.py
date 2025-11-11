@@ -45,7 +45,8 @@ def muro_prestamos_view(request):
     return render(request, 'Muros/muro_prestamo.html', datitos)
 
 def muro_ayudas_view(request):
-    publicaciones = Publicacion.objects.filter(tipoMuro = 'AYUDAS').order_by('-fechaCreacion')
+    publicaciones = filtroPreferencias(request, 'AYUDAS')
+    #publicaciones = Publicacion.objects.filter(tipoMuro = 'AYUDAS').order_by('-fechaCreacion')
     datitos = {
         'nombre' : 'Ayudas',
         'publicacion' : publicaciones,
@@ -54,7 +55,8 @@ def muro_ayudas_view(request):
     return render(request, 'Muros/muro_ayudas.html', datitos)
 
 def muro_servicio_view(request):
-    publicaciones = Publicacion.objects.filter(tipoMuro = 'SERVICIOS').order_by('-fechaCreacion')
+    publicaciones = filtroPreferencias(request, 'AYUDAS')
+    #publicaciones = Publicacion.objects.filter(tipoMuro = 'SERVICIOS').order_by('-fechaCreacion')
     datitos = {
         'nombre' : 'Servicios',
         'publicacion' : publicaciones,
@@ -85,14 +87,39 @@ def eliminarPub(request, publicacion_id):
     urlMuro = urlMuros.get(muro)
     return redirect(urlMuro)
     
-
-def Encuestas(request):
-    return render(request,'publicar/Encuesta_ayudantia.html')
 @login_required
-def preferencias_ayudas_view(request):
-    publicaciones_query = FiltrarPreferencias.objects.filter(TIPO_MURO)
-    if request.method == 'GET':
-    return render(request, 'publicar/Encuesta_ayudantia.html', {'form': form})
+def Encuestas(request):
+    Encuesta, _ = FiltrarPreferencias.objects.get_or_create(usuario=request.user)
+    if request.method == 'POST':
+        form = EncuestaAyudantia(request.POST, instance=Encuesta)
+        if form.is_valid():
+            form.save() 
+            return redirect('home') 
+    else:
+        form = EncuestaAyudantia(instance=Encuesta)
+    return render(request,'publicar/Encuesta_ayudantia.html',{'form': form})
+
+
+def filtroPreferencias(request,tipo_muro):
+    publicaciones_qs = Publicacion.objects.filter(tipoMuro = tipo_muro)
+    preferencias = FiltrarPreferencias.objects.get(usuario=request.user)
+    filtros = {}
+    if request.user.is_authenticated:
+        if preferencias.modalidad:
+            if preferencias.modalidad != 'AMBAS':
+                filtros['modalidad']=preferencias.modalidad
+        if preferencias.Comunicacion:
+            filtros['Comunicacion'] = preferencias.Comunicacion
+        if preferencias.metododeestudio:
+            filtros['metododeestudio'] = preferencias.metododeestudio
+        if preferencias.dias:
+            filtros['dias'] = preferencias.dias
+        if preferencias.asignatura:
+            filtros['asignatura'] = preferencias.asignatura
+        if filtros:
+            publicaciones_qs = publicaciones_qs.filter(**filtros)
+    return publicaciones_qs.order_by('-fechaCreacion')
+
     
 
    

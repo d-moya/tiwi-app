@@ -52,7 +52,10 @@ class Publicacion(models.Model):
     cantMaterial = models.PositiveIntegerField(blank=True, null=True)
     titulo = models.CharField(max_length=150,blank=True, null=True)
     fotoMaterial = models.ImageField(upload_to='publicaciones_fotos/', blank=True, null=True)
-    diaPref = models.CharField(max_length=15, choices=PREF_DIA, blank=True, null=True)
+    dias = models.CharField(max_length=15, choices=PREF_DIA, blank=True, null=True)
+    Comunicacion = models.CharField(max_length=59, choices=TIPO_COMUNICACION, blank=True, null=True)
+    metododeestudio = models.CharField(max_length=30, choices=METODO_DE_ESTUDIO, blank=True, null=True)
+
 
 
 def __str__(self):
