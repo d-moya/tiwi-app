@@ -46,7 +46,7 @@ def muro_prestamos_view(request):
     return render(request, 'Muros/muro_prestamo.html', datitos)
 
 def muro_ayudas_view(request):
-    publicaciones = Publicacion.objects.filter(tipoMuro = 'AYUDAS').order_by('fechaCreacion')
+    publicaciones = Publicacion.objects.filter(tipoMuro = 'AYUDAS').order_by('-fechaCreacion')
     datitos = {
         'nombre' : 'Ayudas',
         'publicacion' : publicaciones,
