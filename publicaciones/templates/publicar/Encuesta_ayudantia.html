@@ -10,8 +10,15 @@
 
     <h1>Formulario de Ayudantía</h1>
     <p>Agradecemos tu tiempo para responder estas breves preguntas.</p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
 
+    {{ form.as_p }} 
+    
+    <button type="submit">Enviar Publicación</button>
+</form>
     <form action="#" method="post">
+        {% csrf_token %}
         <fieldset>
             <legend>Pregunta de Intereses</legend>
             

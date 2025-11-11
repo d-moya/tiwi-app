@@ -86,3 +86,18 @@ class FormComentarios(forms.ModelForm):
         widgets = {
             'contenido': forms.Textarea(attrs={'rows': 2, 'placeholder': 'Escribe tu comentario','class': '#'})
         }
+class EncuestaAyudantia(forms.ModelForm):
+    class Meta: 
+        model: Publicacion
+
+        fields =[
+          'modalidad','Comunicacion'
+        ]
+        labels = {
+            "Tiporeunion":"¿De que forma tu quisieras reunirte en la ayudantia?",
+            "Comunicacion":"¿De que manera te acomoda mas comunicarte con el ayudante?",
+        }
+        widgets ={
+         "Tiporeunion": forms.CheckboxSelectMultiple(attrs={'class':'#'}),
+         "Comunicacion": forms.CheckboxSelectMultiple(attrs={'class':'#'}),
+        }

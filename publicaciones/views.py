@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import FormAyudas, FormTutoria, FormPrestamos, FormComentarios
+from .forms import FormAyudas, FormTutoria, FormPrestamos, FormComentarios ,EncuestaAyudantia
 from .models import Publicacion, Comentario
 
 urlMuros = {
         'AYUDAS': 'muro_ayudas',
         'PRESTAMOS': 'muro_prestamos',
         'SERVICIOS' : 'muro_servicio',
+        'EN_AYUDAS' : 'preferencias_ayudas'
 }
     
 def validar(request, formulario, tipo_muro_valor, nombreurl, nombreTemplate):
@@ -86,4 +87,11 @@ def eliminarPub(request, publicacion_id):
     return redirect(urlMuro)
     
 
+def preferencias_ayudas_view(request):
+    return validar(request,EncuestaAyudantia,'EN_AYUDAS','preferencias_ayudas',"publicar\Encuesta_tutoria.html")
     
+def preferencias_prestamos_view(request):
+    return render(request,"publicar\Encuesta_ayudantia.html")
+def preferencias_tutorias_view(request):
+    return render(request,"publicar\Encuesta_tutoria.html")
+   

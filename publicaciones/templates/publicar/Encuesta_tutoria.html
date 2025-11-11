@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +6,9 @@
     <title>Encuesta de tutorias</title>
     <link rel="stylesheet" href="{% static 'publicar/style.css' %}">
 </head>
-<body>
+<body> {% endcomment %}
 
-    <h1>Formulario de Tutorías</h1>
+    {% comment %} <h1>Formulario de Tutorías</h1>
     <p>Agradecemos tu tiempo para responder estas breves preguntas.</p>
 
     <form action="#" method="post">
@@ -41,7 +41,7 @@
             <button type="submit" href="{%url 'home'%}">Siguiente</button>
         </div>
 
-    </form>
-
+    </form> {% endcomment %}
+{% comment %} 
 </body>
-</html>
+</html> {% endcomment %}

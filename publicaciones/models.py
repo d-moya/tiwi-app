@@ -26,6 +26,10 @@ TIPO_MURO = [
     ('PRESTAMOS','Prestamos'),
     ('SERVICIOS','Servicios'),
 ]
+TIPO_COMUNICACION =[
+      ('CORREO','Correo Institucional'),
+      {'OTROS','Redes Sociales (Instagram, Facebook, WhatsApp, etc.)'}
+]
 
 class Publicacion(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -39,6 +43,7 @@ class Publicacion(models.Model):
     cantMaterial = models.PositiveIntegerField(blank=True, null=True)
     titulo = models.CharField(max_length=150, blank=True, null=True)
     fotoMaterial = models.ImageField(upload_to='publicaciones_fotos/', blank=True, null=True)
+    Comunicacion = models.CharField(max_length=59, choices=TIPO_COMUNICACION, blank=True, null=True)
 
 def __str__(self):
         return f"[{self.get_tipo_muro_display()}] {self.usuario.username}"
