@@ -147,7 +147,7 @@ overflow: hidden;
 }
 .config-boton-link{
     min-height: 250px;
-    border-radius: 12px;
+    border-radius: 35px;
     text-decoration: none;
     color: white;
     font-size: 1.25rem;
@@ -168,8 +168,8 @@ overflow: hidden;
     filter: brightness(1.1);
 }
 .logo-enlace {
-    width: 150px; 
-    height: 150px; 
+    width: 250px; 
+    height: 250px; 
     object-fit: contain; 
     filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -179,7 +179,7 @@ overflow: hidden;
     transform: scale(1.15); 
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
-a.ayudas-publicar { background: #FF9800; } 
-a.tutorias-publicar { background: #A15180; } 
-a.prestamos-publicar { background: #DC6749; }
+a.ayudas-publicar { background: linear-gradient(0deg, #F08B47, #FFBE7D) } 
+a.tutorias-publicar { background: linear-gradient(0deg, #944C8C, #DA87CC);} 
+a.prestamos-publicar { background: linear-gradient(0deg,  #DC674B, #FFA18E) }
 /*botones de publicaciones*/
