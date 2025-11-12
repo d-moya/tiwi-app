@@ -103,15 +103,16 @@ class EncuestaAyudantia(forms.ModelForm):
         model= FiltrarPreferencias
 
         fields =[
-          'modalidad','Comunicacion','metododeestudio','dias','asignatura',
+          'modalidad','Comunicacion','metododeestudio','dias','asignatura', 'tipoSesion',
         ]
 
         labels = {
-            "modalidad":"¿De qué forma tu quisieras reunirte en la ayudantia?",
-            "Comunicacion":"¿De qué manera te acomoda mas comunicarte con el ayudante?",
-            "metododeestudio":"¿Cuál es metodo de estudio te acomoda más?",
-            "dias":"¿Que dias te acomodan mas para la ayudantia?",
-            "asignatura":"¿Que asignatura te gustaria para la ayudantia?",
+            "modalidad":"¿De qué manera te sería más cómodo reunirte en una ayudantía?",
+            "Comunicacion":"¿Por cuál medio te acomodaría más comunicarte con otros usuarios?",
+            "metododeestudio":"¿Cuál/es de estos métodos de estudio te acomodan más?",
+            "dias":"¿En qué días tienes más tiempo libre para estudiar cómodamente?",
+            "asignatura":"¿Cuál asignatura es de tu mayor interés en este momento?",
+            "tipoSesion": "¿Te sentirías más cómodo en una sesión individual (sólo el tutor y el alumno) o junto a más personas?",
         }
         widgets ={
         "modalidad": forms.Select(attrs={'class':'#'}),
@@ -119,4 +120,5 @@ class EncuestaAyudantia(forms.ModelForm):
         "metododeestudio": forms.Select(attrs={'class':'#'}),
         "dias": forms.Select(attrs={'class':'#'}),
         "asignatura": forms.Select(attrs={'class':'#'}),
+        'tipoSesion': forms.Select(attrs={'class':'#'}),
         }

@@ -77,5 +77,5 @@ class FiltrarPreferencias(models.Model):
       metododeestudio = models.CharField(max_length=30, choices=METODO_DE_ESTUDIO, blank=True, null=True)
       dias = models.CharField(max_length=10, choices=PREF_DIA, blank=True, null=True)
       asignatura = models.CharField(max_length=20, choices=DEPARTAMENTOS, blank=True, null=True)
-
+      tipoSesion = models.CharField(max_length=15, choices=TIPO_SESION,blank=True, null=True)
 

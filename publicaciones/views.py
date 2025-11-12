@@ -116,6 +116,8 @@ def filtroPreferencias(request,tipo_muro):
             filtros['dias'] = preferencias.dias
         if preferencias.asignatura:
             filtros['asignatura'] = preferencias.asignatura
+        if preferencias.tipoSesion:
+            filtros['tipoSesion'] = preferencias.tipoSesion
         if filtros:
             publicaciones_qs = publicaciones_qs.filter(**filtros)
     return publicaciones_qs.order_by('-fechaCreacion')
