@@ -126,13 +126,27 @@ overflow: hidden;
 /*botones de publicaciones*/
 .contenido-principal{
     max-width: 1200px;
-    margin: 100px auto 30px auto;
+    margin: 150px auto 30px auto;
     padding: 0 20px;
     text-align: center;
 }
 .contenido-principal h1 {
-    font-size: 2rem;
-    margin-bottom: 40px;
+    font-size: 3.3rem;
+    margin-bottom: 90px;
+    position: relative; 
+    padding-bottom: 30px; 
+    color: #f0f0f0; 
+}
+.contenido-principal h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 120px; 
+    height: 5px;
+    background: linear-gradient(90deg, #DC6749, #A15180); 
+    border-radius: 10px;
 }
 .botones-publicar {
     grid-template-columns: repeat(3, 1fr) !important;
