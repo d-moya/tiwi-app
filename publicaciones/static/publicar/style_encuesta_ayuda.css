@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(90deg, #0e141e, #10080C);
+    color: white;
+    overflow-x: hidden; 
+}
+
+/*BARRA DE ARRIBA*/
+.navbar {
+    background: linear-gradient(90deg, #DC6749, #A15180);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px 15px;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; 
+    z-index: 1000;
+}
+.Nav-Boton {
+    display: flex;
+    height: 100%;
+}
+.logo-casita{
+    background-color:none;
+    height: 100%;
+    margin-left: 0%;
+    width: auto;
+    padding: 0;
+    display: flex; 
+    align-items: center;
+
+}
+.logo-casita img {
+    height: 50px; 
+    width: 50px;
+    display: block;
+}
+.logo-grupo-izquierdo {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    height: 100%;
+}
+.logo-grupo-izquierdo img:nth-child(2) {
+    height: 60px; 
+    width: auto;
+}
+.config-boton {
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: auto;
+    color: white; 
+}
+.config-boton img {
+    height: 55%;
+}
+
+.config-boton:hover {
+    opacity: 0.8;
+}
+.menu-button{
+    padding: 0 20px;
+    margin-right: 2%;
+    border-radius: 8px; 
+}
+/*BARRA DE ARRIBA*/
+/*ventana emergente*/
+.menulado {
+    background:linear-gradient(0deg, #DC6749, #A15180);
+    z-index: 2000;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    transition: 0.7s;
+    padding-top: 40px;
+    overflow: hidden;
+}
+.menulado a {
+    text-decoration: none;
+    font-size: 30px;
+    color:#ccc ;
+    padding: 8px;
+    display:block;
+    transition: 0.5s;
+}
+.menulado a:hover {
+    color: rgb(187, 229, 230);
+}
+.menulado .cerrarmenu{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    margin-left:50px;
+    display: flex;
+}
+/*ventana emergente*/
+
+/*Encusta y mascota*/
+.main-content-wrapper {
+    padding-top: 50px; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    min-height: calc(100vh - 70px); 
+    padding-bottom: 0px;
+    margin-left: 100px;
+}
+
+.mascota-wrapper {
+    display: none; 
+    padding-right: 0px; 
+}
+
+.mascota-encuesta-lateral {
+    width: 400px; 
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(220, 103, 73, 0.2));
+    animation: bounce 3s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .mascota-wrapper {
+        display: block; 
+    }
+    .form-container {
+        max-width: 650px; 
+    }
+}
+
+
+.form-container {
+    max-width: 800px; 
+    margin: 30px; 
+    padding: 40px; 
+    background-color: #2a2c31; 
+    border-radius: 12px; 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    z-index: 100;
+}
+
+
+.form-container h2 {
+    font-size: 2.2rem; 
+    font-weight: 700; 
+    margin-bottom: 40px; 
+    text-align: center;
+    color: #DC6749; 
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.form-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; 
+    height: 4px; 
+    background: linear-gradient(90deg, #DC6749, #A15180);
+    border-radius: 2px;
+}
+
+
+.form-container form p {
+    text-align: left;
+    margin-bottom: 30px; 
+}
+
+.form-container form p label {
+    display: block;
+    margin-bottom: 10px; 
+    font-weight: 600; 
+    color: #E6E6E6;
+    font-size: 1.15em;
+}
+
+.form-container input[type="text"], 
+.form-container select {
+    width: 100%;
+    padding: 14px; 
+    border-radius: 8px; 
+    border: 1px solid #55585E; 
+    background-color: #3B3E45; 
+    color: white;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease; 
+    appearance: none; 
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center; 
+    padding-right: 40px; 
+}
+
+.form-container input[type="text"]::placeholder {
+    color: #999; 
+}
+
+.form-container input[type="text"]:focus, 
+.form-container select:focus {
+    border-color: #DC6749; 
+    outline: none;
+    box-shadow: 0 0 10px rgba(220, 103, 73, 0.4);
+    background-color: #3F4249; 
+}
+
+.form-container button[type="submit"] {
+    background: linear-gradient(90deg, #DC6749, #A15180);
+    border: none;
+    color: white;
+    padding: 15px 30px; 
+    border-radius: 10px; 
+    cursor: pointer;
+    font-size: 1.1em; 
+    font-weight: 700; 
+    letter-spacing: 0.8px; 
+    transition: all 0.3s ease;
+    margin-top: 30px; 
+    display: block; 
+    width: 100%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.form-container button[type="submit"]:hover {
+    opacity: 0.95;
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); 
+}
+/*Encusta y mascota*/
