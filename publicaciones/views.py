@@ -102,9 +102,10 @@ def Encuestas(request):
 
 def filtroPreferencias(request,tipo_muro):
     publicaciones_qs = Publicacion.objects.filter(tipoMuro = tipo_muro)
-    preferencias = FiltrarPreferencias.objects.get(usuario=request.user)
+    preferencias = FiltrarPreferencias.objects.filter(usuario=request.user).first()
+    #preferencias = FiltrarPreferencias.objects.get(usuario=request.user).first()
     filtros = {}
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and preferencias:
         if preferencias.modalidad:
             if preferencias.modalidad != 'AMBAS':
                 filtros['modalidad']=preferencias.modalidad

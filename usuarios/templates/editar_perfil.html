@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+        <h3>✍️ Editar Perfil de {{ request.user.username }}</h3>
+        
+        <form method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            
+            {{ form.as_p }} 
+            
+            <button type="submit">
+                Guardar Cambios
+            </button>
+
+            <a href="{% url 'verPerfil' %}" >
+            <button type="button">
+                Cancelar y Volver
+            </button>
+        </a>
+</body>
+</html>
