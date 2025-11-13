@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de {{ usuario.username }}</title>
+</head>
+<body>
+      
+        <h1>Perfil de {{ usuario.username }}</h1>
+
+        {% if perfil.fotoPerfil %}
+            <img src="{{ perfil.fotoPerfil.url }}" alt="Foto de Perfil" style="max-width: 200px;">
+        {% else %}
+            <p>Sin Foto</p>
+        {% endif %}
+
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        
+        <p>Soy de: {{ perfil.Carrera|default:"No especificado" }}</p>
+        <p>Comunicate a: {{ perfil.Contacto|default:"No especificado" }}</p>
+        <p>Miembro desde: {{ perfil.fechaUnion|date:"d M Y" }}</p>
+
+        <a href="{% url 'editarPerfil' %}">
+            <button type="button">
+                Editar Perfil
+            </button>
+        </a>
+    </div> 
+
+</body>
+</html>
+</body>
+</html>
