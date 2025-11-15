@@ -66,7 +66,20 @@
 
         {% for pub in publicacion %}
         <div class="publicacion-card">
-            <h3>{{ pub.materialPrestamo }}</h3>
+            <h3>
+                <a href="{% url 'perfilPublico' username=pub.usuario.username %}" 
+                    style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+            
+                    {% if pub.usuario.perfilusuario.fotoPerfil %}
+                    <img src="{{ pub.usuario.perfilusuario.fotoPerfil.url }}" 
+                         alt="Foto de {{ pub.usuario.username }}" 
+                        style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> 
+                    {% endif %}
+                </a>
+                <span style="vertical-align: top;">
+                    {{ pub.materialPrestamo }}
+                </span>
+            </h3>
             <p><strong>Cantidad:</strong> {{ pub.cantMaterial }}</p>
             <p>{{ pub.contenido }}</p>
             
@@ -76,8 +89,8 @@
                     style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px; border: 1px solid #444;"> 
             {% endif %}
             
-            <div class="publicacion-meta">
-                Publicado por **{{ pub.usuario.username }}** el {{ pub.fechaCreacion|date:"d M Y" }} a las {{ pub.fechaCreacion|date:"H:i" }}
+            <div class="publicacion-meta"> 
+                Publicado el {{ pub.fechaCreacion|date:"d M Y" }} a las {{ pub.fechaCreacion|date:"H:i" }}
             </div>
 
             <p style="margin-top: 15px;">
@@ -88,13 +101,23 @@
             
             <div id="comentarios-{{ pub.id }}">
                 {% for comentario in pub.Comentarios.all %}
-                    <p class="comentario-item">
-                        {{ comentario.contenido }} - 
-                        <span style="font-weight: bold;">{{ comentario.usuario.username }}</span> 
+                    <p class="comentario-item"> {{ comentario.contenido }} - 
+                        <a href="{% url 'perfilPublico' username=comentario.usuario.username %}" 
+                            style="font-weight: bold; color: inherit; text-decoration: none; 
+                            display: inline-flex; align-items: center; vertical-align: middle;">
+            
+                            {% if comentario.usuario.perfilusuario.fotoPerfil %}
+                                <img src="{{ comentario.usuario.perfilusuario.fotoPerfil.url }}" 
+                                    alt="Foto de {{ comentario.usuario.username }}" 
+                                    style="width: 20px; height: 20px; border-radius: 50%; margin-right: 5px;">
+                            {% endif %}
+            
+                            {{ comentario.usuario.username }}
+                        </a>
                         ({{ comentario.fechaCreacion|date:"H:i" }})
                     </p>
                 {% empty %}
-                    <p>No hay comentarios.</p>
+                    <p style="margin-top: 10px; color: #ccc;">No hay comentarios.</p>
                 {% endfor %}
 
                 <form method="POST" action="{% url 'crear_comentario' pub.id pub.tipoMuro %}" class="comentarios-form">

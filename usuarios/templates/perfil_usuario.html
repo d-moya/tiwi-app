@@ -22,11 +22,13 @@
         <p>Comunicate a: {{ perfil.Contacto|default:"No especificado" }}</p>
         <p>Miembro desde: {{ perfil.fechaUnion|date:"d M Y" }}</p>
 
-        <a href="{% url 'editarPerfil' %}">
-            <button type="button">
-                Editar Perfil
-            </button>
-        </a>
+        {% if request.user == usuario %}
+            <a href="{% url 'editarPerfil' %}">
+                <button type="button">
+                    Editar Perfil
+                </button>
+            </a>
+        {% endif %}
     </div> 
 
 </body>
