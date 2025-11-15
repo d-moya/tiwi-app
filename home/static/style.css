@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=DynaPuff&display=swap');
 
 body {
     margin: 0;
@@ -304,12 +304,12 @@ overflow: hidden;
 }
 
 .que-es-choripan-center h2 {
-    font-size: 2.5em;
+    font-size: 2.4em;
     margin-bottom: 10px;
     color: #f8f6f4!important; 
     font-weight: 600;
     text-align: center;
-    font-family: 'Chewy';
+    font-family: 'DynaPuff';
     background-image: linear-gradient(90deg, #BF4E5D, #b0618f,#9953a0);
     background-size: 100% 100%; 
     background-position: center center;
@@ -324,4 +324,54 @@ overflow: hidden;
     color: #f8f6f5; 
     font-weight: 400;
     font-family: 'Inter', sans-serif ;
+}
+
+.seccion-nosotros {
+    max-width: 1200px;
+    margin: 50px auto 80px auto; 
+    padding: 0 20px;
+}
+
+.seccion-nosotros h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-align: left; 
+    font-weight: 600;
+    font-family:'DynaPuff' ;
+    color: #f8f6f5;
+}
+
+.equipo-avatares {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 30px; 
+    justify-content: center;
+    margin-top: 30px; 
+}
+
+.miembro-equipo {
+    text-align: center;
+    width: auto; 
+}
+
+.miembro-equipo img {
+    width: 150px;       
+    height: 150px;      
+    object-fit: cover;  
+    border-radius: 50%, 50%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.miembro-equipo img:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+.miembro-equipo p { 
+    margin-top: 10px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #f7f7f7; 
+    font-family: 'Inter', sans-serif; 
 }
