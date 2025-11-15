@@ -61,20 +61,13 @@ def editar_perfil(request):
     return render(request, 'editar_perfil.html', contexto)
 
 def perfil_publico(request, username):
-    # 1. Obtener el objeto User de Django usando el username de la URL
     usuario = get_object_or_404(User, username=username)
-    
-    # 2. Obtener el objeto perfilUsuario asociado al objeto User
+ 
     perfil = get_object_or_404(perfilUsuario, usuario=usuario)
-    
-    # Opcional: Obtener las publicaciones del usuario (si quieres mostrarlas)
-    # publicaciones = Publicacion.objects.filter(autor=usuario).order_by('-fecha_creacion')
-
+ 
     contexto = {
         'perfil': perfil,
-        'usuario': usuario, # Es el User que se está viendo
-        # 'publicaciones': publicaciones,
+        'usuario': usuario,
     }
     
-    # Utiliza la misma plantilla que usas para ver el perfil del usuario logueado o crea una nueva.
     return render(request, 'perfil_usuario.html', contexto)
