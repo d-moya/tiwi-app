@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Chewy&display=swap');
 
 body {
     margin: 0;
@@ -194,7 +195,7 @@ body {
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     transition: background-color 0.2s, transform 0.2s;
 }
 
@@ -287,4 +288,40 @@ overflow: hidden;
     font-size: 30px;
     margin-left:50px;
     display: flex;
+}
+
+.que-es-choripan-center {
+    position: absolute;
+    right: 5%;
+    top: -90px;
+    width: 600px;
+    padding: 10px;
+    background-color: transparent; 
+    box-shadow: none;
+    text-align: center;
+    z-index: 5;
+
+}
+
+.que-es-choripan-center h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #f8f6f4!important; 
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Chewy';
+    background-image: linear-gradient(90deg, #BF4E5D, #b0618f,#9953a0);
+    background-size: 100% 100%; 
+    background-position: center center;
+    padding-bottom: 5px;
+    z-index: 2;
+    border-radius: 15px;
+}
+
+.que-es-choripan-center p {
+    font-size: 1.2em;
+    line-height: 1.3;
+    color: #f8f6f5; 
+    font-weight: 400;
+    font-family: 'Inter', sans-serif ;
 }
