@@ -28,15 +28,20 @@ def registro_usuario(request):
         form = UserCreationForm()
     return render(request, 'registro.html', {'form': form})
 
-@login_required
-def ver_perfil(request):
-    perfil = get_object_or_404(perfilUsuario, usuario=request.user)
-    
+def ver_perfil(request, username):
+    usuario = get_object_or_404(User, username=username)
+    perfil, created = perfilUsuario.objects.get_or_create(
+        usuario=usuario,
+        defaults={
+            'fotoPerfil': random.choice(FOTOS_DEFECTO),
+        }
+    )
+        
     contexto = {
-        'perfil': perfil,
-        'usuario': request.user,
+        'usuario': usuario,
+        'perfil': perfil
     }
-    
+
     return render(request, 'perfil_usuario.html', contexto)
 
 @login_required
@@ -59,3 +64,15 @@ def editar_perfil(request):
     }
     
     return render(request, 'editar_perfil.html', contexto)
+
+def perfil_publico(request, username):
+    usuario = get_object_or_404(User, username=username)
+ 
+    perfil = get_object_or_404(perfilUsuario, usuario=usuario)
+ 
+    contexto = {
+        'perfil': perfil,
+        'usuario': usuario,
+    }
+    
+    return render(request, 'perfil_usuario.html', contexto)

@@ -19,13 +19,13 @@
   }  
 </script>
 
-     <div class="menulado" id="ladomenu">
+    <div class="menulado" id="ladomenu">
             <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
 
-            {% if user.is_authenticated %}
-            <a href="{% url 'verPerfil' %}" class="menu-item" style="display: block;">
-            {{ user.username }} 
-        </a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'perfilPublico' username=request.user.username %}" >
+                    {{ request.user.username }}
+                </a>
         
                 <form method="post" action="{% url 'logout' %}" style="display: block; padding: 0;">
                     {% csrf_token %} <button type="submit"
@@ -94,6 +94,16 @@
                 Responder Encuesta
             </a>
         </div>
+            <div class="que-es-choripan-center">
+        <h2>¿Qué es Choripán Center?</h2>
+        <p>
+            Esta es tu mejor plataforma de apoyo académico creada por y para estudiantes de la USM. 
+            Nuestro objetivo es conectar a la comunidad sansana para un intercambio de ayuda, servicios 
+            y préstamos de materiales, completamente gratuitos. 
+            Además, te facilitamos el acceso a distintas herramientas académicas esenciales. 
+            A continuación, tenemos enlaces a algunas herramientas y páginas web útiles e importantes de la USM:
+        </p>
+    </div>
     </div>
      {% endif %}
 
@@ -131,7 +141,42 @@
 
     </main>
 
-    
+    <section class="seccion-nosotros">
+        <h2>Nosotros:</h2>
+        
+        <div class="equipo-avatares">
+            
+            <div class="miembro-equipo">
+                <img src="{% static 'images/avatar1.png' %}" alt="Miembro 1">
+                <p class="nombre-miembro">Ignacio Gonzalez</p>
+                <p class="nombre-miembro">Encargado de Frontend</p>
+            </div>
+            
+            <div class="miembro-equipo">
+                <img src="{% static 'images/DM.png' %}" alt="Miembro 2">
+                <p class="nombre-miembro">Dayana Moya</p>
+                <p class="nombre-miembro">Encargado de Frontend</p>
+            </div>
+            
+            <div class="miembro-equipo">
+                <img src="{% static 'images/avatar3.png' %}" alt="Miembro 3">
+                <p class="nombre-miembro">Felipe Perez</p>
+                <p class="nombre-miembro">Encargado de Frontend</p>
+            </div>
+            
+            <div class="miembro-equipo">
+                <img src="{% static 'images/avatar4.png' %}" alt="Miembro 4">
+                <p class="nombre-miembro">Cristina Rosas</p>
+                <p class="nombre-miembro">Encargado de Diseño Gráfico</p>
+            </div>
+            <div class="miembro-equipo">
+                <img src="{% static 'images/avatar4.png' %}" alt="Miembro 5">
+                <p class="nombre-miembro">Daniel Sanchez</p>
+                <p class="nombre-miembro">Encargado de Frontend</p>
+                
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
 </body>
