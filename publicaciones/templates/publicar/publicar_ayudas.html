@@ -1,7 +1,19 @@
-<form method="post">
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'formularios/form_ayudas.css' %}"> 
+</head>
+
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    {{ form.as_p }} 
-    
-    <button type="submit">Enviar Publicación</button>
+    {% for field in form %}
+        <div class="labels">
+            <label for="{{ field.id_for_label }}" class="mi-label">
+                {{ field.label }}
+            </label> 
+            {{ field }}
+        </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Enviar Publicación</button>
 </form>

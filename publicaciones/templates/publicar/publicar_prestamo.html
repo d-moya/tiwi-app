@@ -7,6 +7,8 @@
     <title>Choripan-Center - Publicar Préstamo</title>
     
     <link rel="stylesheet" href="{% static 'style.Prestamo.css' %}"> 
+    <link rel="stylesheet" href="{% static 'formularios/form_prestamos.css' %}"> 
+
     
     <script>
         function cerrarmenu(){
@@ -75,18 +77,19 @@
         </div>
     </header>
 
-    <main class="contenido-principal">
-        <div class="formulario-prestamos-container">
-            <h2 style="color: white; text-align: center; margin-bottom: 25px;">Publicar Objeto de Préstamo</h2>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="#">
+            <label for="{{ field.id_for_label }}" class="mi-label">
+                {{ field.label }}
+            </label>
             
-            <form method="post" enctype="multipart/form-data"> 
-                {% csrf_token %}
-
-                {{ form.as_p }} 
-                
-                <button type="submit">Enviar Publicación</button>
-            </form> 
+            {{ field }}
         </div>
-    </main>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Enviar Publicación</button>
+</form>
 </body>
 </html>

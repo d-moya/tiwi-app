@@ -24,8 +24,8 @@ class FormAyudas(forms.ModelForm):
 
         }
         widgets = {
-            'titulo': forms.TextInput(attrs={'class':'#'}),
-            'modalidad' : forms.Select(attrs={'class':'#'}),
+            'titulo': forms.TextInput(attrs={'class': '#'}),
+            'modalidad' : forms.Select(attrs={'class': '#'}),
             'tipoSesion' : forms.Select(attrs={'class': '#'}),
             'asignatura' : forms.Select(attrs={'class': '#'}),
             'dias' : forms.Select(attrs={'class': '#'}),
