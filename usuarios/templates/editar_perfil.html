@@ -12,7 +12,7 @@
                 Guardar Cambios
             </button>
 
-            <a href="{% url 'verPerfil' %}" >
+            <a href="{% url 'perfilPublico' username=request.user.username %}" >
             <button type="button">
                 Cancelar y Volver
             </button>

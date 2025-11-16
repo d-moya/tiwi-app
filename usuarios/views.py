@@ -59,7 +59,7 @@ def editar_perfil(request):
         
         if form.is_valid():
             form.save()
-            return redirect('verPerfil') 
+            return redirect('perfilPublico', username=request.user.username) 
     else:
         form = PerfilUsuarioForm(instance=perfil)
     
