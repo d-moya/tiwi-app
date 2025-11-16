@@ -257,16 +257,18 @@ cursor: default;}
 }
 
 .menulado {
- background:linear-gradient(0deg, #DC6749, #A15180);
- z-index: 2000;
- top: 0;
- right: 0;
- height: 100%;
- width: 0;
- position: fixed;
- transition: 0.7s;
- padding-top: 40px;
-overflow: hidden;
+    height: 100%;
+    width: 0; 
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #7e3e7f, #c75a7e);
+    overflow-x: hidden;
+    transition: 0.5s;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
 }
 .menulado a {
     text-decoration: none;
@@ -282,9 +284,34 @@ overflow: hidden;
 
 .menulado .cerrarmenu{
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 15px;
+    right: 25px; 
     font-size: 30px;
-    margin-left:50px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 0;
+    margin: 0;
+}
+
+.menulado .menu-icon {
+
     display: flex;
+    justify-content: right; 
+    
+    text-decoration: none;
+    padding: 15px 5px; 
+    transition: background-color 0.2s;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.menulado .menu-icon:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
+}
+
+.menulado .menu-icon img {
+    width: 40px; 
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); 
 }
