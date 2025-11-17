@@ -1,19 +1,89 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choripan-Center - Publicar Ayuda</title>
     <link rel="stylesheet" href="{% static 'formularios/form_ayudas.css' %}"> 
+
+    <script>
+        function cerrarmenu(){
+            document.getElementById("ladomenu").style.width="0";
+        }
+        function abrirmenu(){
+            document.getElementById("ladomenu").style.width="300px";
+        } 
+    </script>
 </head>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+<body>
+    <div class="menulado" id="ladomenu">
+        <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
 
-    {% for field in form %}
-        <div class="labels">
-            <label for="{{ field.id_for_label }}">
-                {{ field.label }}
-            </label> 
-            {{ field }}
+        {% if user.is_authenticated %}
+            <span class="" style="padding: 15px; display: block; color: white;">{{ user.username }}</span> 
+    
+            <form method="post" action="{% url 'logout' %}" style="display: block; padding: 0;">
+                {% csrf_token %} 
+                <button type="submit"
+                    style="background: none; border: none; color: white; cursor: pointer; 
+                           width: 100%; text-align: left; padding: 10px 15px; font-size: 1em;">Cerrar Sesión </button>
+            </form>
+            <hr style="margin: 10px 0;">
+            <a href="{% url 'home_publicar' %}" class="menu-icon">
+                <img src="{% static 'images/Subir_Publicacion_Logo.svg' %}">
+            </a>
+            <a href="{% url 'muro_prestamos' %}" class="menu-icon">
+                <img src="{% static 'images/Muro_Prestamos_Logo.svg' %}">
+            </a>
+            <a href="{% url 'muro_ayudas' %}" class="menu-icon">
+                <img src="{% static 'images/Peticion_Ayuda_Logo.svg' %}">
+            </a>
+            <a href="{% url 'muro_servicio' %}" class="menu-icon" >
+                <img src="{% static 'images/Muro_Tutorias_Logo.svg' %}">
+            </a>
+
+        {% else %}
+            <span style="padding: 15px; display: block; color: white;">Si quieres acceder al menu debes iniciar sesion</span> 
+        {% endif %}
+    </div>
+    <header class="navbar"> 
+        <div class="logo-grupo-izquierdo">
+            <a href="{% url 'home' %}" class="config-boton logo-casita">
+                <img src="{% static 'images/logo-casita (2).svg' %}">
+            </a>
+            <img src="{% static 'images/logo-choripan.svg' %}">
         </div>
-    {% endfor %}
 
-    <button type="submit" class="btn btn-primary">Enviar Publicación</button>
-</form>
+        <div class="Nav-Boton">
+            {% if not user.is_authenticated %} 
+            <a href="{% url 'login' %}" class="config-boton login-button">
+                <img src="{% static 'images/logo-iniciar sesion.svg' %}">
+            </a>
+            <img src="{% static 'images/logo-slash.svg' %}" class="slash">
+            <a href="{% url 'registro' %}" class="config-boton login-button">
+                <img src="{% static 'images/logo-registrarse.svg' %}">
+            </a>
+            {% endif %}
+
+            <button class="config-boton menu-button" onclick="abrirmenu()">
+                <img src="{% static 'images/logo-menu.svg' %}">
+            </button>
+        </div>
+    </header>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-field-container">
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label> 
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Enviar Publicación</button>
+    </form>
+    </body>
+</html>

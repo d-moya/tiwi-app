@@ -5,11 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choripan-Center - Publicar Préstamo</title>
-    
-    <link rel="stylesheet" href="{% static 'style.Prestamo.css' %}"> 
     <link rel="stylesheet" href="{% static 'formularios/form_prestamos.css' %}"> 
 
-    
     <script>
         function cerrarmenu(){
             document.getElementById("ladomenu").style.width="0";
@@ -78,18 +75,18 @@
     </header>
 
     <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in form %}
-        <div class="#">
-            <label for="{{ field.id_for_label }}">
-                {{ field.label }}
-            </label>
-            
-            {{ field }}
-        </div>
-    {% endfor %}
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-field-container">
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+                
+                {{ field }}
+            </div>
+        {% endfor %}
 
-    <button type="submit" class="btn btn-primary">Enviar Publicación</button>
-</form>
+        <button type="submit" class="btn btn-primary">Enviar Publicación</button>
+    </form>
 </body>
 </html>

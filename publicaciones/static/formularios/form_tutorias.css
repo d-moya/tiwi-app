@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    /* Fondo principal: gradiente oscuro */
+    background: linear-gradient(90deg, #0e141e, #10080C); 
+    color: white;
+    overflow-x: hidden; 
+}
+
+/* --- BARRA DE NAVEGACIÓN (HEADER) --- */
+.navbar {
+    background: linear-gradient(90deg, #DC6749, #A15180);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px 15px;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; 
+    z-index: 1000;
+}
+.Nav-Boton {
+    display: flex;
+    height: 100%;
+}
+.logo-casita{
+    background-color:none;
+    height: 100%;
+    margin-left: 0%;
+    width: auto;
+    padding: 0;
+    display: flex; 
+    align-items: center;
+
+}
+.logo-casita img {
+    height: 50px; 
+    width: 50px;
+    display: block;
+}
+.logo-grupo-izquierdo {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    height: 100%;
+}
+.logo-grupo-izquierdo img:nth-child(2) {
+    height: 60px; 
+    width: auto;
+}
+.config-boton {
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: auto;
+    color: white; 
+}
+.config-boton img {
+    height: 55%;
+}
+
+.config-boton:hover {
+    opacity: 0.8;
+}
+.menu-button{
+    padding: 0 20px;
+    margin-right: 2%;
+    border-radius: 8px; 
+}
+/* --- MENÚ LATERAL --- */
+
+.menulado {
+    height: 100%;
+    width: 0; 
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #7e3e7f, #c75a7e);
+    overflow-x: hidden;
+    transition: 0.5s;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+}
+.menulado a {
+    text-decoration: none;
+    font-size: 30px;
+    color:#ccc ;
+    padding: 8px;
+    display:block;
+    transition: 0.5s;
+}
+.menulado a:hover {
+    color: rgb(187, 229, 230);
+}
+
+.menulado .cerrarmenu{
+    position: absolute;
+    top: 15px;
+    right: 25px; 
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 0;
+    margin: 0;
+}
+
+.menulado .menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+    padding: 15px 5px; 
+    transition: background-color 0.2s;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.menulado .menu-icon:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
+}
+
+.menulado .menu-icon img {
+    width: 300px; 
+    height: 40px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); 
+}
+
+/* --- ESTILOS DEL FORMULARIO (SUAVE Y MODERNO) --- */
+
+form {
+    max-width: 600px;
+    margin: 100px auto 50px auto; 
+    padding: 40px; 
+    
+    /* Fondo más suave */
+    background-color: #1a222c; 
+    border-radius: 25px; 
+    
+    /* Sombra suave y sutil */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 
+                0 0 10px rgba(161, 81, 128, 0.3); 
+}
+
+/* Contenedor de cada campo */
+.form-field-container { 
+    margin-bottom: 25px; 
+}
+
+/* Etiquetas */
+label {
+    display: block; 
+    margin-bottom: 5px; 
+    font-size: 1em;
+    font-weight: 500; 
+    color: #f0f0f0; /* Blanco suave */
+    text-transform: none; 
+}
+
+/* Campos de texto y áreas de texto */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 14px 18px; 
+    box-sizing: border-box;
+    border: 1px solid #333d4a; 
+    border-radius: 12px; 
+    font-size: 1em;
+    background-color: #0e141e; 
+    color: #ffffff; 
+    transition: border-color 0.3s, box-shadow 0.3s; 
+}
+
+/* Efecto de foco */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #DC6749; 
+    box-shadow: 0 0 10px rgba(220, 103, 73, 0.5); 
+    outline: none; 
+    background-color: #10161f; 
+}
+
+/* Botón de envío */
+.btn-primary {
+    width: 100%;
+    padding: 18px; 
+    border: none;
+    border-radius: 15px; 
+    font-size: 1.1em;
+    font-weight: 700; 
+    cursor: pointer;
+    margin-top: 30px;
+    
+    /* Gradiente de Choripan Center */
+    background: linear-gradient(90deg, #DC6749, #A15180); 
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Efecto 3D suave */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 2px 0 #8c416e; 
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.95;
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 3px 0 #8c416e; 
+}
+
+.btn-primary:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+}
+
+/* Input de archivo */
+input[type="file"] {
+    padding: 12px 0; 
+    border: none; 
+    background: none;
+    color: #A15180; 
+    cursor: pointer;
+}
