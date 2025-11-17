@@ -81,16 +81,18 @@ body {
 /*BARRA DE ARRIBA*/
 /*ventana emergente*/
 .menulado {
-    background:linear-gradient(0deg, #DC6749, #A15180);
-    z-index: 2000;
+    height: 100%;
+    width: 0; 
+    position: fixed;
+    z-index: 1001;
     top: 0;
     right: 0;
-    height: 100%;
-    width: 0;
-    position: fixed;
-    transition: 0.7s;
-    padding-top: 40px;
-    overflow: hidden;
+    background: linear-gradient(to bottom, #7e3e7f, #c75a7e);
+    overflow-x: hidden;
+    transition: 0.5s;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
 }
 .menulado a {
     text-decoration: none;
@@ -101,15 +103,42 @@ body {
     transition: 0.5s;
 }
 .menulado a:hover {
-    color: rgb(187, 229, 230);
+ color: rgb(187, 229, 230);
 }
+
 .menulado .cerrarmenu{
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 15px;
+    right: 25px; 
     font-size: 30px;
-    margin-left:50px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 0;
+    margin: 0;
+}
+
+.menulado .menu-icon {
+
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    text-decoration: none;
+    padding: 15px 5px; 
+    transition: background-color 0.2s;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.menulado .menu-icon:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
+}
+
+.menulado .menu-icon img {
+    width: 300px; 
+    height: 40px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); 
 }
 /*ventana emergente*/
 
