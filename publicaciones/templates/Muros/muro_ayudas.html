@@ -23,7 +23,9 @@
         <a href="javascript:void(0)" class="cerrarmenu" onclick="cerrarmenu()">X</a>
 
         {% if user.is_authenticated %}
-            <span class= "" style="padding: 15px; display: block; color: white;">{{ user.username }}</span> 
+            <a href="{% url 'perfilPublico' username=request.user.username %}">
+                    {{ request.user.username }}
+            </a>
         
             <form method="post" action="{% url 'logout' %}" style="display: block; padding: 0;">
                 {% csrf_token %} <button type="submit"

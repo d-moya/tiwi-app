@@ -44,17 +44,22 @@ def ver_perfil(request, username):
 
     return render(request, 'perfil_usuario.html', contexto)
 
+
 @login_required
 def editar_perfil(request):
-
-    perfil = get_object_or_404(perfilUsuario, usuario=request.user)
+    perfil, created = perfilUsuario.objects.get_or_create(
+        usuario=request.user,
+        defaults={
+            'fotoPerfil': random.choice(FOTOS_DEFECTO),
+        }
+    )
 
     if request.method == 'POST':
         form = PerfilUsuarioForm(request.POST, request.FILES, instance=perfil)
         
         if form.is_valid():
             form.save()
-            return redirect('verPerfil') 
+            return redirect('perfilPublico', username=request.user.username) 
     else:
         form = PerfilUsuarioForm(instance=perfil)
     
@@ -64,15 +69,3 @@ def editar_perfil(request):
     }
     
     return render(request, 'editar_perfil.html', contexto)
-
-def perfil_publico(request, username):
-    usuario = get_object_or_404(User, username=username)
- 
-    perfil = get_object_or_404(perfilUsuario, usuario=usuario)
- 
-    contexto = {
-        'perfil': perfil,
-        'usuario': usuario,
-    }
-    
-    return render(request, 'perfil_usuario.html', contexto)
